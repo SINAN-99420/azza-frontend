@@ -1,0 +1,658 @@
+/* =========================================
+   HOME
+========================================= */
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #171b18;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-section {
+  position: relative;
+
+  min-height: 735px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 55px 11% 120px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 72% 50%,
+      #eef4e9 0%,
+      #f6f8f3 27%,
+      #ffffff 58%
+    );
+}
+
+
+/* soft leaves / light effect */
+
+.hero-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: -180px;
+  bottom: -130px;
+
+  border-radius: 50%;
+
+  background: #e8f0e3;
+
+  filter: blur(35px);
+
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  width: 48%;
+}
+
+
+/* Badge */
+
+.hero-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #d9e4d7;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  color: #174d32;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+.hero-badge span {
+  font-size: 17px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.hero-title {
+  margin: 30px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(55px, 5.2vw, 76px);
+
+  line-height: 1.02;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+
+  color: #171b18;
+}
+
+.hero-title span {
+  color: #174d32;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+  margin-top: 28px;
+
+  color: #555d58;
+
+  font-size: 17px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  margin-top: 34px;
+}
+
+
+/* Shop Now */
+
+.shop-now-btn {
+  height: 58px;
+
+  min-width: 218px;
+
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #174d32;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.shop-now-btn b {
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.shop-now-btn:hover {
+  transform: translateY(-2px);
+
+  background: #123d28;
+}
+
+
+/* Story */
+
+.story-btn {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #242925;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.play-circle {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf3e9;
+
+  color: #174d32;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.hero-features {
+  margin-top: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 23px;
+}
+
+.hero-feature {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.feature-circle {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf4e9;
+
+  color: #174d32;
+
+  font-size: 20px;
+}
+
+.hero-feature strong,
+.hero-feature span {
+  display: block;
+}
+
+.hero-feature strong {
+  color: #242a25;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.hero-feature span {
+  margin-top: 3px;
+
+  color: #747b76;
+
+  font-size: 12px;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 40px;
+
+  background: #dce3dc;
+}
+
+
+/* =========================================
+   RIGHT PRODUCT
+========================================= */
+
+.hero-product {
+  position: relative;
+
+  width: 52%;
+  height: 540px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Green glow */
+
+.product-glow {
+  position: absolute;
+
+  width: 560px;
+  height: 560px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #e6eee1 0%,
+      #eef3ea 50%,
+      transparent 72%
+    );
+}
+
+
+/* Product image */
+
+.hero-product img {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 690px;
+
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 25px 30px rgba(40, 60, 40, 0.12)
+    );
+}
+
+
+/* =========================================
+   GOODNESS CARD
+========================================= */
+
+.goodness-card {
+  position: absolute;
+
+  z-index: 10;
+
+  right: -5px;
+  top: 80px;
+
+  width: 170px;
+  height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 23px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 20px 45px rgba(50, 70, 50, 0.10);
+
+  backdrop-filter: blur(10px);
+}
+
+.goodness-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 50%;
+
+  background: #edf3e9;
+
+  color: #174d32;
+
+  font-size: 19px;
+}
+
+.goodness-card p {
+  margin: 0;
+
+  text-align: center;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 18px;
+
+  line-height: 1.25;
+
+  color: #272c28;
+}
+
+.goodness-line {
+  width: 48px;
+  height: 2px;
+
+  margin-top: 14px;
+
+  background: #e8b52d;
+}
+
+
+/* =========================================
+   STATS CARD
+========================================= */
+
+.stats-card {
+  position: relative;
+  z-index: 20;
+
+  width: 74%;
+
+  min-height: 125px;
+
+  margin: -58px auto 0;
+
+  padding: 22px 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #edf0ec;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 18px 45px rgba(40, 60, 40, 0.08);
+}
+
+
+/* Individual stat */
+
+.stat {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.stat-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf4e9;
+
+  color: #174d32;
+
+  font-size: 22px;
+}
+
+.stat strong,
+.stat span {
+  display: block;
+}
+
+.stat strong {
+  color: #161b17;
+
+  font-size: 23px;
+
+  font-weight: 700;
+}
+
+.stat span {
+  margin-top: 4px;
+
+  color: #6c736e;
+
+  font-size: 12px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 55px;
+
+  background: #e1e6e1;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .hero-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .hero-title {
+    font-size: 55px;
+  }
+
+  .stats-card {
+    width: 88%;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .hero-section {
+    min-height: auto;
+
+    flex-direction: column;
+
+    padding: 55px 6% 100px;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-badge {
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 48px;
+
+    letter-spacing: -2px;
+  }
+
+  .hero-description br {
+    display: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .hero-features {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .hero-product {
+    width: 100%;
+
+    height: 430px;
+
+    margin-top: 30px;
+  }
+
+  .product-glow {
+    width: 360px;
+    height: 360px;
+  }
+
+  .goodness-card {
+    right: 0;
+
+    top: 40px;
+
+    transform: scale(0.8);
+  }
+
+  .stats-card {
+    width: 88%;
+
+    margin-top: -45px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    padding: 28px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .shop-now-btn {
+    min-width: 190px;
+  }
+
+  .hero-product {
+    height: 330px;
+  }
+
+  .product-glow {
+    width: 290px;
+    height: 290px;
+  }
+
+  .stats-card {
+    grid-template-columns: 1fr;
+  }
+
+}
