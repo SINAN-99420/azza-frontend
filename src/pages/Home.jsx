@@ -4,16 +4,14 @@ function Home() {
   return (
     <main className="home-page">
 
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section className="hero-section">
 
-        {/* LEFT CONTENT */}
         <div className="hero-content">
 
-          <div className="hero-badge">
-            <span>♧</span>
+          <p className="hero-label">
             PURE BY NATURE
-          </div>
+          </p>
 
           <h1 className="hero-title">
             Pure Honey.
@@ -22,177 +20,52 @@ function Home() {
           </h1>
 
           <p className="hero-description">
-            From nature to you, 100% natural & unfiltered honey,
+            Naturally sourced honey, carefully selected
             <br />
-            packed with goodness for a healthier life.
+            and delivered with purity in every drop.
           </p>
 
-          <div className="hero-buttons">
+          <button className="hero-button">
+            SHOP NOW
+            <span>→</span>
+          </button>
 
-            <button className="shop-now-btn">
-              <span>Shop Now</span>
-              <b>→</b>
-            </button>
-
-            <button className="story-btn">
-              <span className="play-circle">▶</span>
-              <span>Watch Our Story</span>
-            </button>
-
-          </div>
-
-
-          {/* FEATURES */}
           <div className="hero-features">
 
             <div className="hero-feature">
-
-              <div className="feature-circle">
-                ♧
-              </div>
-
+              <div className="feature-icon">✦</div>
               <div>
                 <strong>100%</strong>
-                <span>Natural</span>
+                <small>NATURAL</small>
               </div>
-
             </div>
-
-
-            <div className="feature-divider"></div>
-
 
             <div className="hero-feature">
-
-              <div className="feature-circle">
-                ♧
-              </div>
-
+              <div className="feature-icon">◌</div>
               <div>
-                <strong>Raw &</strong>
-                <span>Unfiltered</span>
+                <strong>RAW</strong>
+                <small>& UNFILTERED</small>
               </div>
-
             </div>
-
-
-            <div className="feature-divider"></div>
-
 
             <div className="hero-feature">
-
-              <div className="feature-circle">
-                ♢
-              </div>
-
+              <div className="feature-icon">◇</div>
               <div>
-                <strong>Premium</strong>
-                <span>Quality</span>
+                <strong>PREMIUM</strong>
+                <small>QUALITY</small>
               </div>
-
             </div>
 
           </div>
 
         </div>
 
+        <div className="hero-visual">
 
-        {/* RIGHT PRODUCT */}
-        <div className="hero-product">
-
-          <div className="product-glow"></div>
-
-          <img
-            src="/images/honey-hero.png"
-            alt="Azza Pure Honey"
-          />
-
-
-          {/* FLOATING CARD */}
-          <div className="goodness-card">
-
-            <div className="goodness-icon">
-              ♧
+          <div className="hero-circle">
+            <div className="honey-placeholder">
+              🍯
             </div>
-
-            <p>
-              Goodness
-              <br />
-              in Every Drop
-            </p>
-
-            <div className="goodness-line"></div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* STATS CARD */}
-      <section className="stats-card">
-
-        <div className="stat">
-
-          <div className="stat-icon">
-            ♧
-          </div>
-
-          <div>
-            <strong>100%</strong>
-            <span>Natural Produce</span>
-          </div>
-
-        </div>
-
-
-        <div className="stat-divider"></div>
-
-
-        <div className="stat">
-
-          <div className="stat-icon">
-            ♙
-          </div>
-
-          <div>
-            <strong>10K+</strong>
-            <span>Happy Customers</span>
-          </div>
-
-        </div>
-
-
-        <div className="stat-divider"></div>
-
-
-        <div className="stat">
-
-          <div className="stat-icon">
-            ★
-          </div>
-
-          <div>
-            <strong>4.9/5</strong>
-            <span>Product Rating</span>
-          </div>
-
-        </div>
-
-
-        <div className="stat-divider"></div>
-
-
-        <div className="stat">
-
-          <div className="stat-icon">
-            ▱
-          </div>
-
-          <div>
-            <strong>Fast</strong>
-            <span>Delivery Across India</span>
           </div>
 
         </div>

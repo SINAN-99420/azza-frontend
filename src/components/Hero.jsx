@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const slides = [
     {
       tag: "PURE BY NATURE",
+
       title: (
         <>
           Pure Honey.
@@ -14,14 +18,20 @@ function Hero() {
           Pure <span>Goodness.</span>
         </>
       ),
+
       description:
         "From nature to you, 100% natural & unfiltered honey, packed with goodness for a healthier life.",
+
       button: "Shop Honey",
+
       image: "/images/hero.png",
+
       alt: "Azza Pure Honey",
     },
+
     {
       tag: "NATURAL GOODNESS",
+
       title: (
         <>
           Honey & Nuts.
@@ -29,28 +39,31 @@ function Hero() {
           <span>Naturally Delicious.</span>
         </>
       ),
+
       description:
         "A delicious combination of natural honey and premium nuts, made for a tasty and wholesome experience.",
+
       button: "Shop Honey Nuts",
+
       image: "/images/hero2.png",
+
       alt: "Azza Honey Mixed Nuts",
     },
   ];
 
   const slide = slides[activeSlide];
 
-  /* Auto slider */
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, []);
+  /* =========================
+     NEXT SLIDE
+  ========================= */
 
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
   };
+
+  /* =========================
+     PREVIOUS SLIDE
+  ========================= */
 
   const prevSlide = () => {
     setActiveSlide((prev) =>
@@ -58,32 +71,114 @@ function Hero() {
     );
   };
 
-  return (
-    <section className="hero">
+  /* =========================
+     AUTO SLIDER
+  ========================= */
 
-      {/* Background glow */}
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  /* =========================
+     MOBILE SWIPE
+  ========================= */
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+
+    const difference =
+      touchStartX.current - touchEndX.current;
+
+    // Swipe left
+    if (difference > 50) {
+      nextSlide();
+    }
+
+    // Swipe right
+    if (difference < -50) {
+      prevSlide();
+    }
+  };
+
+  return (
+    <section
+      className="hero"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+
+      {/* =========================
+          BACKGROUND GLOW
+      ========================= */}
+
       <div className="hero-glow"></div>
+
+
+      {/* =========================
+          HERO CONTAINER
+      ========================= */}
 
       <div className="hero-container">
 
-        {/* ================= LEFT ================= */}
-        <div className="hero-content" key={`content-${activeSlide}`}>
+
+        {/* =========================
+            LEFT CONTENT
+        ========================= */}
+
+        <div
+          className="hero-content"
+          key={`content-${activeSlide}`}
+        >
+
+          {/* TAG */}
 
           <div className="hero-tag">
+
             <span>✦</span>
+
             {slide.tag}
+
           </div>
 
-          <h1>{slide.title}</h1>
 
-          <p>{slide.description}</p>
+          {/* TITLE */}
+
+          <h1>
+            {slide.title}
+          </h1>
+
+
+          {/* DESCRIPTION */}
+
+          <p>
+            {slide.description}
+          </p>
+
+
+          {/* BUTTONS */}
 
           <div className="hero-buttons">
 
             <button className="shop-btn">
-              <span>{slide.button}</span>
-              <b>→</b>
+
+              <span>
+                {slide.button}
+              </span>
+
+              <b>
+                →
+              </b>
+
             </button>
+
 
             <button className="explore-btn">
               Explore Products
@@ -91,34 +186,80 @@ function Hero() {
 
           </div>
 
-          {/* Features */}
+
+          {/* =========================
+              FEATURES
+          ========================= */}
+
           <div className="hero-features">
 
+
+            {/* FEATURE 1 */}
+
             <div className="feature">
-              <div className="feature-icon">✓</div>
+
+              <div className="feature-icon">
+                ✓
+              </div>
 
               <div>
-                <strong>100% Natural</strong>
-                <small>Pure ingredients</small>
+
+                <strong>
+                  100% Natural
+                </strong>
+
+                <small>
+                  Pure ingredients
+                </small>
+
               </div>
+
             </div>
 
+
+            {/* FEATURE 2 */}
+
             <div className="feature">
-              <div className="feature-icon">◇</div>
+
+              <div className="feature-icon">
+                ◇
+              </div>
 
               <div>
-                <strong>Premium Quality</strong>
-                <small>Carefully selected</small>
+
+                <strong>
+                  Premium Quality
+                </strong>
+
+                <small>
+                  Carefully selected
+                </small>
+
               </div>
+
             </div>
 
+
+            {/* FEATURE 3 */}
+
             <div className="feature">
-              <div className="feature-icon">♢</div>
+
+              <div className="feature-icon">
+                ♢
+              </div>
 
               <div>
-                <strong>Fresh & Pure</strong>
-                <small>Packed with care</small>
+
+                <strong>
+                  Fresh & Pure
+                </strong>
+
+                <small>
+                  Packed with care
+                </small>
+
               </div>
+
             </div>
 
           </div>
@@ -126,15 +267,25 @@ function Hero() {
         </div>
 
 
-        {/* ================= RIGHT ================= */}
+        {/* =========================
+            RIGHT PRODUCT
+        ========================= */}
+
         <div
           className={`hero-product ${
-            activeSlide === 1 ? "nuts-slide" : ""
+            activeSlide === 1
+              ? "nuts-slide"
+              : ""
           }`}
           key={`product-${activeSlide}`}
         >
 
+          {/* PRODUCT GLOW */}
+
           <div className="product-glow"></div>
+
+
+          {/* PRODUCT IMAGE */}
 
           <img
             src={slide.image}
@@ -142,38 +293,19 @@ function Hero() {
             className="honey-image"
           />
 
-          {/* <div className="floating-card">
-
-            <div className="card-icon">✦</div>
-
-            <strong>
-              {activeSlide === 0 ? (
-                <>
-                  Goodness
-                  <br />
-                  in Every Drop
-                </>
-              ) : (
-                <>
-                  Natural
-                  <br />
-                  Crunchy Goodness
-                </>
-              )}
-            </strong>
-
-            <div className="card-line"></div>
-
-          </div> */}
-
         </div>
 
       </div>
 
 
-      {/* ================= SLIDER ================= */}
+      {/* =========================
+          SLIDER CONTROLS
+      ========================= */}
 
       <div className="slider-controls">
+
+
+        {/* PREVIOUS */}
 
         <button
           className="slider-arrow"
@@ -183,20 +315,32 @@ function Hero() {
           ←
         </button>
 
+
+        {/* DOTS */}
+
         <div className="slider-dots">
 
           {slides.map((_, index) => (
+
             <button
               key={index}
-              onClick={() => setActiveSlide(index)}
+              onClick={() =>
+                setActiveSlide(index)
+              }
               className={`slider-dot ${
-                activeSlide === index ? "active" : ""
+                activeSlide === index
+                  ? "active"
+                  : ""
               }`}
               aria-label={`Slide ${index + 1}`}
             ></button>
+
           ))}
 
         </div>
+
+
+        {/* NEXT */}
 
         <button
           className="slider-arrow"
@@ -209,11 +353,36 @@ function Hero() {
       </div>
 
 
-      {/* Scroll indicator */}
-      {/* <div className="scroll-indicator">
-        <span>SCROLL</span>
+      {/* =========================
+          SLIDE NUMBER
+      ========================= */}
+
+      <div className="slide-number">
+        <span>
+          0{activeSlide + 1}
+        </span>
+
+        <div className="slide-number-line"></div>
+
+        <span>
+          0{slides.length}
+        </span>
+      </div>
+
+
+      {/* =========================
+          SCROLL INDICATOR
+      ========================= */}
+
+      <div className="scroll-indicator">
+
+        <span>
+          SCROLL
+        </span>
+
         <div></div>
-      </div> */}
+
+      </div>
 
     </section>
   );
