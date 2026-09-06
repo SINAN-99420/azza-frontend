@@ -5,75 +5,45 @@ function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
   const slides = [
     {
-      tag: "PURE BY NATURE",
-
-      title: (
-        <>
-          Pure Honey.
-          <br />
-          Pure <span>Goodness.</span>
-        </>
-      ),
-
+      number: "01",
+      label: "PURE HONEY",
+      title: "Pure from",
+      highlight: "nature.",
       description:
-        "From nature to you, 100% natural & unfiltered honey, packed with goodness for a healthier life.",
-
+        "Naturally sourced honey, carefully packed to bring pure goodness to your everyday life.",
       button: "Shop Honey",
-
       image: "/images/hero.png",
-
-      alt: "Azza Pure Honey",
+      sideTitle: "Pure Honey",
+      sideText: "100% Natural",
     },
-
     {
-      tag: "NATURAL GOODNESS",
-
-      title: (
-        <>
-          Honey & Nuts.
-          <br />
-          <span>Naturally Delicious.</span>
-        </>
-      ),
-
+      number: "02",
+      label: "HONEY & NUTS",
+      title: "Nature's",
+      highlight: "perfect crunch.",
       description:
-        "A delicious combination of natural honey and premium nuts, made for a tasty and wholesome experience.",
-
+        "Premium nuts blended with natural honey for a delicious and wholesome experience.",
       button: "Shop Honey Nuts",
-
       image: "/images/hero2.png",
-
-      alt: "Azza Honey Mixed Nuts",
+      sideTitle: "Honey & Nuts",
+      sideText: "Premium Selection",
     },
   ];
 
   const slide = slides[activeSlide];
 
-  /* =========================
-     NEXT SLIDE
-  ========================= */
-
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
   };
-
-  /* =========================
-     PREVIOUS SLIDE
-  ========================= */
 
   const prevSlide = () => {
     setActiveSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
-
-  /* =========================
-     AUTO SLIDER
-  ========================= */
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -83,26 +53,20 @@ function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  /* =========================
-     MOBILE SWIPE
-  ========================= */
-
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].clientX;
+    const touchEndX = e.changedTouches[0].clientX;
 
     const difference =
-      touchStartX.current - touchEndX.current;
+      touchStartX.current - touchEndX;
 
-    // Swipe left
     if (difference > 50) {
       nextSlide();
     }
 
-    // Swipe right
     if (difference < -50) {
       prevSlide();
     }
@@ -110,156 +74,97 @@ function Hero() {
 
   return (
     <section
-      className="hero"
+      className="azza-hero"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
+      {/* ================= TOP BAR ================= */}
 
-      {/* =========================
-          BACKGROUND GLOW
-      ========================= */}
+      <div className="hero-header">
+        <span>AZZA FOODSTUFF</span>
 
-      <div className="hero-glow"></div>
+        <div className="header-center">
+          NATURAL • SIMPLE • GOOD
+        </div>
 
-
-      {/* =========================
-          HERO CONTAINER
-      ========================= */}
-
-      <div className="hero-container">
+        <span>EST. 2026</span>
+      </div>
 
 
-        {/* =========================
-            LEFT CONTENT
-        ========================= */}
+      {/* ================= DECORATIVE BACKGROUND ================= */}
+
+      <div className="hero-shape hero-shape-one"></div>
+
+      <div className="hero-shape hero-shape-two"></div>
+
+      <div className="hero-dots-bg"></div>
+
+
+      {/* ================= MAIN ================= */}
+
+      <div className="azza-hero-container">
+
+
+        {/* ================= LEFT CONTENT ================= */}
 
         <div
-          className="hero-content"
+          className="azza-hero-content"
           key={`content-${activeSlide}`}
         >
+          <div className="hero-small-label">
+            <span>{slide.number}</span>
 
-          {/* TAG */}
+            <i></i>
 
-          <div className="hero-tag">
-
-            <span>✦</span>
-
-            {slide.tag}
-
+            {slide.label}
           </div>
 
 
-          {/* TITLE */}
-
           <h1>
             {slide.title}
+            <br />
+            <em>{slide.highlight}</em>
           </h1>
 
-
-          {/* DESCRIPTION */}
 
           <p>
             {slide.description}
           </p>
 
 
-          {/* BUTTONS */}
+          <div className="hero-actions">
 
-          <div className="hero-buttons">
+            <button className="azza-shop-btn">
+              <span>{slide.button}</span>
 
-            <button className="shop-btn">
-
-              <span>
-                {slide.button}
-              </span>
-
-              <b>
-                →
-              </b>
-
+              <b>↗</b>
             </button>
 
-
-            <button className="explore-btn">
-              Explore Products
+            <button className="discover-btn">
+              Discover more
+              <span>↓</span>
             </button>
 
           </div>
 
 
-          {/* =========================
-              FEATURES
-          ========================= */}
+          {/* FEATURES */}
 
-          <div className="hero-features">
+          <div className="hero-mini-features">
 
-
-            {/* FEATURE 1 */}
-
-            <div className="feature">
-
-              <div className="feature-icon">
-                ✓
-              </div>
-
-              <div>
-
-                <strong>
-                  100% Natural
-                </strong>
-
-                <small>
-                  Pure ingredients
-                </small>
-
-              </div>
-
+            <div>
+              <strong>100%</strong>
+              <span>Natural</span>
             </div>
 
-
-            {/* FEATURE 2 */}
-
-            <div className="feature">
-
-              <div className="feature-icon">
-                ◇
-              </div>
-
-              <div>
-
-                <strong>
-                  Premium Quality
-                </strong>
-
-                <small>
-                  Carefully selected
-                </small>
-
-              </div>
-
+            <div>
+              <strong>PURE</strong>
+              <span>Ingredients</span>
             </div>
 
-
-            {/* FEATURE 3 */}
-
-            <div className="feature">
-
-              <div className="feature-icon">
-                ♢
-              </div>
-
-              <div>
-
-                <strong>
-                  Fresh & Pure
-                </strong>
-
-                <small>
-                  Packed with care
-                </small>
-
-              </div>
-
+            <div>
+              <strong>FRESH</strong>
+              <span>Every Pack</span>
             </div>
 
           </div>
@@ -267,120 +172,158 @@ function Hero() {
         </div>
 
 
-        {/* =========================
-            RIGHT PRODUCT
-        ========================= */}
+        {/* ================= PRODUCT ================= */}
 
         <div
-          className={`hero-product ${
+          className={`azza-product ${
             activeSlide === 1
-              ? "nuts-slide"
+              ? "nuts-product"
               : ""
           }`}
           key={`product-${activeSlide}`}
         >
 
-          {/* PRODUCT GLOW */}
+          <div className="product-bg-circle"></div>
 
-          <div className="product-glow"></div>
+          <div className="product-inner-circle"></div>
 
-
-          {/* PRODUCT IMAGE */}
+          <div className="product-shadow"></div>
 
           <img
             src={slide.image}
-            alt={slide.alt}
-            className="honey-image"
+            alt={
+              activeSlide === 0
+                ? "Azza Pure Honey"
+                : "Azza Honey Mixed Nuts"
+            }
           />
 
+
+          {/* PRODUCT BADGE */}
+
+          <div className="product-badge">
+
+            <span>✦</span>
+
+            <div>
+              <small>{slide.sideTitle}</small>
+
+              <strong>{slide.sideText}</strong>
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
+
+        {/* ================= RIGHT SIDE ================= */}
+
+        <div className="hero-right">
+
+          {/* vertical text */}
+
+          <div className="vertical-label">
+            GOODNESS FROM NATURE
+          </div>
 
 
-      {/* =========================
-          SLIDER CONTROLS
-      ========================= */}
+          {/* info card */}
 
-      <div className="slider-controls">
+          <div className="hero-info-card">
 
+            <div className="info-card-top">
 
-        {/* PREVIOUS */}
+              <span>AZZA</span>
 
-        <button
-          className="slider-arrow"
-          onClick={prevSlide}
-          aria-label="Previous slide"
-        >
-          ←
-        </button>
+              <span>0{activeSlide + 1}</span>
+
+            </div>
 
 
-        {/* DOTS */}
+            <div className="info-icon">
+              ✦
+            </div>
 
-        <div className="slider-dots">
 
-          {slides.map((_, index) => (
+            <h3>
+              Made with
+              <br />
+              <em>care.</em>
+            </h3>
+
+
+            <p>
+              Quality products,
+              naturally selected
+              for you.
+            </p>
+
+
+            <div className="card-line"></div>
+
+          </div>
+
+
+          {/* NAVIGATION */}
+
+          <div className="hero-navigation">
 
             <button
-              key={index}
-              onClick={() =>
-                setActiveSlide(index)
-              }
-              className={`slider-dot ${
-                activeSlide === index
-                  ? "active"
-                  : ""
-              }`}
-              aria-label={`Slide ${index + 1}`}
-            ></button>
+              onClick={prevSlide}
+              aria-label="Previous slide"
+            >
+              ←
+            </button>
 
-          ))}
+            <div className="navigation-progress">
+
+              <span
+                className={
+                  activeSlide === 0
+                    ? "active"
+                    : ""
+                }
+              ></span>
+
+              <span
+                className={
+                  activeSlide === 1
+                    ? "active"
+                    : ""
+                }
+              ></span>
+
+            </div>
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next slide"
+            >
+              →
+            </button>
+
+          </div>
 
         </div>
 
-
-        {/* NEXT */}
-
-        <button
-          className="slider-arrow"
-          onClick={nextSlide}
-          aria-label="Next slide"
-        >
-          →
-        </button>
-
       </div>
 
 
-      {/* =========================
-          SLIDE NUMBER
-      ========================= */}
+      {/* ================= BOTTOM ================= */}
 
-      <div className="slide-number">
-        <span>
-          0{activeSlide + 1}
-        </span>
+      <div className="hero-bottom">
 
-        <div className="slide-number-line"></div>
+        <div>
+          <span>01</span>
+          <p>FROM NATURE</p>
+        </div>
 
-        <span>
-          0{slides.length}
-        </span>
-      </div>
+        <div className="bottom-line"></div>
 
-
-      {/* =========================
-          SCROLL INDICATOR
-      ========================= */}
-
-      <div className="scroll-indicator">
-
-        <span>
-          SCROLL
-        </span>
-
-        <div></div>
+        <div>
+          <span>02</span>
+          <p>TO YOUR HOME</p>
+        </div>
 
       </div>
 

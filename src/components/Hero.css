@@ -1,154 +1,221 @@
-/* =========================================
-   HERO
-========================================= */
+/* =========================================================
+   AZZA PREMIUM HERO
+========================================================= */
 
-.hero {
+.azza-hero {
   position: relative;
+
   width: 100%;
-  min-height: 735px;
+  min-height: 730px;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 75% 45%,
-      #e7f0e3 0%,
-      #f2f6ef 30%,
-      #ffffff 68%
-    );
+  background: #f3f5ed;
 
-  color: #171b18;
+  color: #193d2a;
 }
 
 
-/* =========================================
-   BACKGROUND GLOW
-========================================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
-.hero-glow {
+.hero-header {
   position: absolute;
 
-  width: 420px;
-  height: 420px;
+  top: 28px;
 
-  left: -220px;
-  bottom: -220px;
+  left: 5%;
+  right: 5%;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #66756b;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+}
+
+
+.header-center {
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   BACKGROUND SHAPES
+========================================================= */
+
+.hero-shape {
+  position: absolute;
 
   border-radius: 50%;
-
-  background: #e5eee1;
-
-  filter: blur(60px);
-
-  opacity: 0.6;
 
   pointer-events: none;
 }
 
 
-/* =========================================
-   HERO CONTAINER
-========================================= */
+.hero-shape-one {
+  width: 500px;
+  height: 500px;
 
-.hero-container {
+  left: -330px;
+  bottom: -250px;
+
+  background: #e4ecdf;
+}
+
+
+.hero-shape-two {
+  width: 300px;
+  height: 300px;
+
+  right: -180px;
+  top: 120px;
+
+  background: #e8eee3;
+}
+
+
+.hero-dots-bg {
+  position: absolute;
+
+  right: 8%;
+
+  top: 120px;
+
+  width: 100px;
+  height: 160px;
+
+  opacity: 0.35;
+
+  background-image:
+    radial-gradient(
+      #b8c6b7 1px,
+      transparent 1px
+    );
+
+  background-size: 12px 12px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.azza-hero-container {
   position: relative;
-  z-index: 2;
 
-  width: 100%;
-  max-width: 1450px;
+  width: min(1280px, 90%);
 
-  min-height: 735px;
+  min-height: 730px;
 
-  margin: 0 auto;
-
-  padding: 50px 8% 105px;
+  margin: auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 0.95fr)
-    minmax(0, 1.05fr);
+    34%
+    52%
+    14%;
 
   align-items: center;
-
-  gap: 25px;
-
-  box-sizing: border-box;
 }
 
 
-/* =========================================
-   HERO CONTENT
-========================================= */
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
 
-.hero-content {
+.azza-hero-content {
   position: relative;
-  z-index: 5;
 
-  width: 100%;
-  max-width: 620px;
+  z-index: 10;
+
+  padding-top: 20px;
 
   animation:
-    contentReveal 0.8s ease both;
+    textEnter
+    0.7s
+    ease
+    both;
 }
 
 
-@keyframes contentReveal {
+@keyframes textEnter {
 
   from {
     opacity: 0;
-    transform: translateY(25px);
+
+    transform:
+      translateY(25px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 
 }
 
 
-/* =========================================
-   HERO TAG
-========================================= */
+/* =========================================================
+   SMALL LABEL
+========================================================= */
 
-.hero-tag {
-  width: fit-content;
+.hero-small-label {
 
   display: flex;
+
   align-items: center;
 
-  gap: 9px;
+  gap: 10px;
 
-  padding: 9px 17px;
+  margin-bottom: 26px;
 
-  border: 1px solid #d5e1d2;
+  color: #65766a;
 
-  border-radius: 30px;
+  font-size: 9px;
 
-  background: rgba(255, 255, 255, 0.72);
-
-  color: #174d32;
-
-  font-size: 11px;
   font-weight: 600;
 
   letter-spacing: 2px;
 }
 
 
-.hero-tag span {
-  font-size: 14px;
-  line-height: 1;
+.hero-small-label span {
+  color: #315b40;
 }
 
 
-/* =========================================
-   TITLE
-========================================= */
+.hero-small-label i {
 
-.hero-content h1 {
-  margin: 27px 0 0;
+  width: 28px;
+
+  height: 1px;
+
+  background: #b7c4b7;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.azza-hero-content h1 {
+
+  margin: 0;
 
   font-family:
     Georgia,
@@ -156,248 +223,260 @@
     serif;
 
   font-size:
-    clamp(52px, 5.2vw, 76px);
+    clamp(
+      52px,
+      5.2vw,
+      78px
+    );
 
-  line-height: 1.02;
+  line-height: 0.98;
 
-  font-weight: 500;
+  font-weight: 400;
 
-  letter-spacing: -3px;
+  letter-spacing: -3.5px;
 
-  color: #171b18;
+  color: #193d2a;
 }
 
 
-.hero-content h1 span {
-  color: #174d32;
+.azza-hero-content h1 em {
+
+  color: #66845f;
+
+  font-style: italic;
 }
 
 
-/* =========================================
+/* =========================================================
    DESCRIPTION
-========================================= */
+========================================================= */
 
-.hero-content > p {
-  width: 100%;
-  max-width: 570px;
+.azza-hero-content p {
 
-  margin: 24px 0 0;
+  max-width: 325px;
 
-  color: #59615c;
+  margin: 27px 0 0;
 
-  font-size: 16px;
+  color: #68746c;
+
+  font-size: 13px;
 
   line-height: 1.7;
 }
 
 
-/* =========================================
-   BUTTONS
-========================================= */
+/* =========================================================
+   ACTIONS
+========================================================= */
 
-.hero-buttons {
+.hero-actions {
+
   display: flex;
 
   align-items: center;
 
-  flex-wrap: wrap;
-
-  gap: 12px;
+  gap: 22px;
 
   margin-top: 30px;
 }
 
 
-/* =========================================
-   SHOP BUTTON
-========================================= */
+.azza-shop-btn {
 
-.shop-btn {
-  width: 205px;
-  height: 56px;
+  height: 50px;
 
-  padding: 0 20px;
+  padding:
+    0
+    15px
+    0
+    21px;
 
   display: flex;
 
   align-items: center;
-  justify-content: space-between;
+
+  gap: 28px;
 
   border: none;
 
-  border-radius: 9px;
+  border-radius: 5px;
 
-  background: #174d32;
+  background: #214e35;
 
-  color: #ffffff;
+  color: white;
 
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 11px;
 
   cursor: pointer;
 
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: 0.3s ease;
 }
 
 
-.shop-btn:hover {
-  transform: translateY(-3px);
+.azza-shop-btn b {
 
-  background: #123e29;
+  width: 25px;
+  height: 25px;
 
-  box-shadow:
-    0 12px 28px
-    rgba(23, 77, 50, 0.2);
-}
+  display: flex;
 
+  align-items: center;
+  justify-content: center;
 
-.shop-btn b {
-  font-size: 20px;
+  border:
+    1px solid
+    rgba(255,255,255,0.35);
+
+  border-radius: 50%;
+
   font-weight: 400;
 }
 
 
-/* =========================================
-   EXPLORE BUTTON
-========================================= */
+.azza-shop-btn:hover {
 
-.explore-btn {
-  height: 56px;
+  background: #173d29;
 
-  padding: 0 21px;
+  transform:
+    translateY(-2px);
+}
 
-  border: 1px solid #cad8c7;
 
-  border-radius: 9px;
+.discover-btn {
 
-  background: rgba(255, 255, 255, 0.45);
+  display: flex;
 
-  color: #31543d;
+  align-items: center;
+
+  gap: 8px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #526258;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+.discover-btn span {
 
   font-size: 14px;
 
-  cursor: pointer;
-
-  transition: 0.25s ease;
+  transition: 0.2s ease;
 }
 
 
-.explore-btn:hover {
-  background: #ffffff;
+.discover-btn:hover span {
 
-  border-color: #174d32;
+  transform:
+    translateY(3px);
 }
 
 
-/* =========================================
-   FEATURES
-========================================= */
+/* =========================================================
+   MINI FEATURES
+========================================================= */
 
-.hero-features {
+.hero-mini-features {
+
   display: flex;
 
   align-items: center;
 
-  flex-wrap: wrap;
+  gap: 22px;
 
-  gap: 24px;
-
-  margin-top: 42px;
+  margin-top: 55px;
 }
 
 
-.feature {
-  display: flex;
+.hero-mini-features > div {
 
-  align-items: center;
+  padding-right: 20px;
 
-  gap: 10px;
+  border-right:
+    1px solid
+    #d5ddd3;
 }
 
 
-.feature-icon {
-  width: 42px;
-  height: 42px;
+.hero-mini-features > div:last-child {
 
-  flex-shrink: 0;
+  padding-right: 0;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #e9f2e5;
-
-  color: #174d32;
-
-  font-size: 15px;
+  border-right: none;
 }
 
 
-.feature strong,
-.feature small {
+.hero-mini-features strong,
+.hero-mini-features span {
+
   display: block;
 }
 
 
-.feature strong {
-  color: #252b26;
+.hero-mini-features strong {
 
-  font-size: 11px;
-
-  font-weight: 600;
-
-  white-space: nowrap;
-}
-
-
-.feature small {
-  margin-top: 4px;
-
-  color: #777e79;
+  color: #315b40;
 
   font-size: 10px;
 
-  white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
 
-/* =========================================
-   HERO PRODUCT
-========================================= */
+.hero-mini-features span {
 
-.hero-product {
+  margin-top: 4px;
+
+  color: #7a857d;
+
+  font-size: 8px;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   PRODUCT AREA
+========================================================= */
+
+.azza-product {
+
   position: relative;
 
-  width: 100%;
-  height: 550px;
+  height: 620px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   animation:
-    productReveal 0.9s ease both;
+    productEnter
+    0.8s
+    ease
+    both;
 }
 
 
-@keyframes productReveal {
+@keyframes productEnter {
 
   from {
+
     opacity: 0;
 
     transform:
-      scale(0.92)
-      translateY(15px);
+      scale(0.94)
+      translateY(10px);
   }
 
   to {
+
     opacity: 1;
 
     transform:
@@ -408,45 +487,69 @@
 }
 
 
-/* =========================================
-   PRODUCT GLOW
-========================================= */
+/* =========================================================
+   PRODUCT CIRCLES
+========================================================= */
 
-.product-glow {
+.product-bg-circle {
+
   position: absolute;
 
-  width: min(560px, 90%);
+  width: 510px;
+  height: 510px;
 
-  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: #e2eadc;
+}
+
+
+.product-inner-circle {
+
+  position: absolute;
+
+  width: 440px;
+  height: 440px;
+
+  border:
+    1px solid
+    rgba(74,104,77,0.12);
+
+  border-radius: 50%;
+}
+
+
+.product-shadow {
+
+  position: absolute;
+
+  bottom: 105px;
+
+  width: 300px;
+  height: 45px;
 
   border-radius: 50%;
 
   background:
-    radial-gradient(
-      circle,
-      #dfeadd 0%,
-      #ebf2e8 48%,
-      transparent 72%
-    );
+    rgba(43,66,47,0.10);
 
-  pointer-events: none;
+  filter: blur(18px);
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT IMAGE
-========================================= */
+========================================================= */
 
-.honey-image {
+.azza-product img {
+
   position: relative;
 
-  z-index: 3;
+  z-index: 5;
 
-  display: block;
+  width: 94%;
 
-  width: min(100%, 650px);
-
-  max-height: 535px;
+  max-width: 580px;
 
   height: auto;
 
@@ -454,177 +557,268 @@
 
   filter:
     drop-shadow(
-      0 25px 30px
-      rgba(40, 60, 40, 0.13)
+      0 28px 30px
+      rgba(35,57,39,0.15)
     );
 }
 
 
-/* =========================================
-   HONEY NUTS IMAGE
-========================================= */
+.nuts-product img {
 
-.nuts-slide .honey-image {
-  width: min(92%, 600px);
+  width: 86%;
+
+  max-width: 520px;
 }
 
 
-/* =========================================
-   SLIDER CONTROLS
-========================================= */
+/* =========================================================
+   PRODUCT BADGE
+========================================================= */
 
-.slider-controls {
+.product-badge {
+
   position: absolute;
 
-  z-index: 30;
+  right: 5%;
 
-  right: 8%;
+  bottom: 105px;
 
-  bottom: 32px;
+  z-index: 10;
+
+  min-width: 155px;
+
+  padding: 14px 17px;
 
   display: flex;
 
   align-items: center;
 
-  gap: 10px;
+  gap: 11px;
+
+  border:
+    1px solid
+    rgba(210,220,207,0.8);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255,255,255,0.78);
+
+  box-shadow:
+    0 12px 30px
+    rgba(43,65,47,0.08);
+
+  backdrop-filter: blur(10px);
 }
 
 
-/* =========================================
-   ARROWS
-========================================= */
+.product-badge > span {
 
-.slider-arrow {
-  width: 40px;
-  height: 40px;
-
-  padding: 0;
+  width: 30px;
+  height: 30px;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #cbd8c8;
-
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.75);
+  background: #edf2e9;
 
-  color: #174d32;
+  color: #416849;
 
-  font-size: 15px;
-
-  cursor: pointer;
-
-  transition: 0.25s ease;
+  font-size: 12px;
 }
 
 
-.slider-arrow:hover {
-  background: #174d32;
+.product-badge small,
+.product-badge strong {
 
-  color: #ffffff;
-
-  border-color: #174d32;
+  display: block;
 }
 
 
-/* =========================================
-   DOTS
-========================================= */
+.product-badge small {
 
-.slider-dots {
-  display: flex;
+  color: #78837a;
 
-  align-items: center;
-
-  gap: 6px;
+  font-size: 8px;
 }
 
 
-.slider-dot {
-  width: 7px;
-  height: 7px;
+.product-badge strong {
 
-  padding: 0;
+  margin-top: 3px;
 
-  border: none;
-
-  border-radius: 20px;
-
-  background: #c4d0c1;
-
-  cursor: pointer;
-
-  transition:
-    width 0.25s ease,
-    background 0.25s ease;
-}
-
-
-.slider-dot.active {
-  width: 24px;
-
-  background: #174d32;
-}
-
-
-/* =========================================
-   SLIDE NUMBER
-========================================= */
-
-.slide-number {
-  position: absolute;
-
-  z-index: 20;
-
-  left: 8%;
-
-  bottom: 36px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  color: #174d32;
+  color: #315b40;
 
   font-size: 10px;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.hero-right {
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 28px;
+
+  z-index: 10;
+}
+
+
+/* =========================================================
+   VERTICAL LABEL
+========================================================= */
+
+.vertical-label {
+
+  writing-mode: vertical-rl;
+
+  transform:
+    rotate(180deg);
+
+  color: #7a877d;
+
+  font-size: 7px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.hero-info-card {
+
+  width: 130px;
+
+  min-height: 175px;
+
+  padding: 15px;
+
+  border:
+    1px solid
+    rgba(211,220,208,0.9);
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,0.7);
+
+  box-shadow:
+    0 15px 35px
+    rgba(47,67,50,0.07);
+
+  backdrop-filter: blur(8px);
+}
+
+
+.info-card-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #879188;
+
+  font-size: 7px;
 
   letter-spacing: 1px;
 }
 
 
-.slide-number-line {
-  width: 45px;
-  height: 1px;
+.info-icon {
 
-  background: #c7d5c4;
+  width: 34px;
+  height: 34px;
+
+  margin-top: 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf0e6;
+
+  color: #416849;
+
+  font-size: 12px;
 }
 
 
-.slide-number span:last-child {
-  color: #929a94;
+.hero-info-card h3 {
+
+  margin: 12px 0 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 17px;
+
+  line-height: 1.05;
+
+  font-weight: 400;
+
+  color: #234a32;
 }
 
 
-/* =========================================
-   SCROLL INDICATOR
-========================================= */
+.hero-info-card h3 em {
 
-.scroll-indicator {
-  position: absolute;
+  color: #66845f;
 
-  z-index: 10;
+  font-style: italic;
+}
 
-  right: 25px;
 
-  top: 50%;
+.hero-info-card p {
 
-  transform: translateY(-50%);
+  margin: 9px 0 0;
+
+  color: #7b857d;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+
+.card-line {
+
+  width: 30px;
+
+  height: 2px;
+
+  margin-top: 14px;
+
+  background: #d4a72c;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.hero-navigation {
 
   display: flex;
 
@@ -636,284 +830,500 @@
 }
 
 
-.scroll-indicator span {
-  writing-mode: vertical-rl;
+.hero-navigation button {
 
-  color: #89918b;
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    #cbd5ca;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.35);
+
+  color: #315b40;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.hero-navigation button:hover {
+
+  background: white;
+
+  transform: scale(1.06);
+}
+
+
+.navigation-progress {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.navigation-progress span {
+
+  width: 3px;
+  height: 13px;
+
+  border-radius: 5px;
+
+  background: #ccd5ca;
+
+  transition: 0.3s ease;
+}
+
+
+.navigation-progress span.active {
+
+  height: 27px;
+
+  background: #315e40;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.hero-bottom {
+
+  position: absolute;
+
+  left: 5%;
+  bottom: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #7b877e;
+
+  z-index: 15;
+}
+
+
+.hero-bottom > div:not(.bottom-line) {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.hero-bottom span {
+
+  color: #315b40;
 
   font-size: 8px;
+}
+
+
+.hero-bottom p {
+
+  margin: 0;
+
+  font-size: 7px;
 
   letter-spacing: 2px;
 }
 
 
-.scroll-indicator div {
-  width: 1px;
-  height: 45px;
+.bottom-line {
 
-  background: #cbd5ca;
+  width: 35px;
+
+  height: 1px;
+
+  background: #bdc8bd;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 
-  .hero-container {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+  .azza-hero-container {
 
-
-  .hero-content h1 {
-    font-size: 55px;
-  }
-
-
-  .hero-product {
-    height: 500px;
-  }
-
-
-  .honey-image {
-    max-height: 480px;
-  }
-
-
-  .slider-controls {
-    right: 5%;
-  }
-
-
-  .slide-number {
-    left: 5%;
-  }
-
-}
-
-
-/* =========================================
-   SMALL TABLET
-========================================= */
-
-@media (max-width: 850px) {
-
-  .hero {
-    min-height: 680px;
-  }
-
-
-  .hero-container {
-
-    min-height: 680px;
+    width: 94%;
 
     grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 0.9fr);
-
-    padding:
-      40px 4%
-      90px;
-
-    gap: 10px;
+      36%
+      52%
+      12%;
   }
 
 
-  .hero-content h1 {
+  .azza-hero-content h1 {
+
+    font-size: 52px;
+  }
+
+
+  .product-bg-circle {
+
+    width: 420px;
+    height: 420px;
+  }
+
+
+  .product-inner-circle {
+
+    width: 360px;
+    height: 360px;
+  }
+
+
+  .azza-product img {
+
+    max-width: 480px;
+  }
+
+
+  .nuts-product img {
+
+    max-width: 430px;
+  }
+
+
+  .hero-info-card {
+
+    width: 115px;
+  }
+}
+
+
+/* =========================================================
+   TABLET SMALL
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .azza-hero {
+
+    min-height: 650px;
+  }
+
+
+  .azza-hero-container {
+
+    min-height: 650px;
+
+    grid-template-columns:
+      39%
+      49%
+      12%;
+  }
+
+
+  .azza-hero-content h1 {
+
     font-size: 45px;
 
     letter-spacing: -2px;
   }
 
 
-  .hero-content > p {
-    font-size: 14px;
-  }
+  .azza-hero-content p {
 
+    max-width: 270px;
 
-  .shop-btn {
-    width: 175px;
-  }
-
-
-  .hero-features {
-    gap: 14px;
-
-    margin-top: 32px;
-  }
-
-
-  .feature {
-    gap: 7px;
-  }
-
-
-  .feature-icon {
-    width: 36px;
-    height: 36px;
-
-    font-size: 13px;
-  }
-
-
-  .feature strong {
-    font-size: 9px;
-  }
-
-
-  .feature small {
-    font-size: 8px;
-  }
-
-
-  .hero-product {
-    height: 430px;
-  }
-
-
-  .honey-image {
-    max-height: 430px;
-  }
-
-
-  .scroll-indicator {
-    display: none;
-  }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-  .hero {
-
-    /*
-      IMPORTANT:
-      First screen should contain
-      text + product image.
-    */
-
-    min-height: 100svh;
-
-    height: auto;
-
-    background:
-      radial-gradient(
-        circle at 50% 62%,
-        #e5efe1 0%,
-        #eef5eb 30%,
-        #f7faf5 62%,
-        #ffffff 100%
-      );
-  }
-
-
-  .hero-container {
-
-    /*
-      Don't make content + image
-      unnecessarily tall.
-    */
-
-    min-height: 100svh;
-
-    height: 100svh;
-
-    max-height: 900px;
-
-    padding:
-      28px 16px
-      85px;
-
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    grid-template-rows:
-      auto
-      minmax(0, 1fr);
-
-    align-items: center;
-
-    gap: 0;
-
-    box-sizing: border-box;
-  }
-
-
-  /* =====================================
-     CONTENT
-  ===================================== */
-
-  .hero-content {
-
-    width: 100%;
-
-    max-width: 600px;
-
-    margin:
-      0 auto;
-
-    text-align: center;
-
-    align-self: start;
-  }
-
-
-  /* TAG */
-
-  .hero-tag {
-
-    margin:
-      0 auto;
-
-    padding:
-      7px 13px;
-
-    font-size: 8.5px;
-
-    letter-spacing: 1.6px;
-  }
-
-
-  .hero-tag span {
     font-size: 11px;
   }
 
 
-  /* TITLE */
+  .hero-mini-features {
 
-  .hero-content h1 {
+    gap: 12px;
 
-    margin-top: 17px;
-
-    font-size:
-      clamp(37px, 9.8vw, 49px);
-
-    line-height: 1;
-
-    letter-spacing:
-      -1.8px;
+    margin-top: 35px;
   }
 
 
-  /* DESCRIPTION */
+  .hero-mini-features > div {
 
-  .hero-content > p {
+    padding-right: 12px;
+  }
 
-    max-width: 430px;
+
+  .product-bg-circle {
+
+    width: 350px;
+    height: 350px;
+  }
+
+
+  .product-inner-circle {
+
+    width: 300px;
+    height: 300px;
+  }
+
+
+  .azza-product {
+
+    height: 500px;
+  }
+
+
+  .azza-product img {
+
+    max-width: 400px;
+  }
+
+
+  .nuts-product img {
+
+    max-width: 360px;
+  }
+
+
+  .product-badge {
+
+    right: 0;
+
+    bottom: 80px;
+
+    transform: scale(0.85);
+  }
+
+
+  .hero-info-card {
+
+    width: 105px;
+
+    min-height: 155px;
+  }
+
+
+  .hero-info-card h3 {
+
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .azza-hero {
+
+    min-height: 730px;
+  }
+
+
+  .hero-header {
+
+    top: 19px;
+
+    left: 20px;
+    right: 20px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .header-center {
+
+    display: none;
+  }
+
+
+  .hero-dots-bg {
+
+    right: 15px;
+
+    top: 95px;
+
+    width: 65px;
+    height: 100px;
+  }
+
+
+  .hero-shape-one {
+
+    width: 280px;
+    height: 280px;
+
+    left: -180px;
+
+    bottom: -150px;
+  }
+
+
+  .hero-shape-two {
+
+    width: 180px;
+    height: 180px;
+
+    right: -100px;
+
+    top: 120px;
+  }
+
+
+  /* ==============================================
+     MAIN MOBILE
+  ============================================== */
+
+  .azza-hero-container {
+
+    width: 100%;
+
+    min-height: 730px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 40px;
+  }
+
+
+  /* ==============================================
+     PRODUCT FIRST
+  ============================================== */
+
+  .azza-product {
+
+    order: 1;
+
+    width: 100%;
+
+    height: 340px;
+
+    flex-shrink: 0;
+
+    margin-top: 5px;
+  }
+
+
+  .product-bg-circle {
+
+    width: 275px;
+    height: 275px;
+  }
+
+
+  .product-inner-circle {
+
+    width: 235px;
+    height: 235px;
+  }
+
+
+  .product-shadow {
+
+    bottom: 35px;
+
+    width: 210px;
+
+    height: 30px;
+  }
+
+
+  .azza-product img {
+
+    width: 94%;
+
+    max-width: 335px;
+  }
+
+
+  .nuts-product img {
+
+    width: 85%;
+
+    max-width: 295px;
+  }
+
+
+  .product-badge {
+
+    right: 8%;
+
+    bottom: 35px;
+
+    min-width: 125px;
+
+    padding: 10px;
+
+    transform: scale(0.8);
+
+    transform-origin: right bottom;
+  }
+
+
+  /* ==============================================
+     CONTENT
+  ============================================== */
+
+  .azza-hero-content {
+
+    order: 2;
+
+    width: 100%;
+
+    padding: 0 25px;
+
+    text-align: center;
+  }
+
+
+  .hero-small-label {
+
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    font-size: 8px;
+  }
+
+
+  .azza-hero-content h1 {
+
+    font-size: 39px;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+  }
+
+
+  .azza-hero-content p {
+
+    max-width: 295px;
 
     margin:
       14px auto 0;
-
-    padding:
-      0 5px;
 
     font-size: 11.5px;
 
@@ -921,555 +1331,354 @@
   }
 
 
-  /* BUTTONS */
-
-  .hero-buttons {
-
-    justify-content:
-      center;
-
-    gap: 8px;
-
-    margin-top: 17px;
-  }
-
-
-  .shop-btn {
-
-    width: 175px;
-
-    height: 45px;
-
-    padding:
-      0 16px;
-
-    border-radius: 8px;
-
-    font-size: 11.5px;
-  }
-
-
-  .shop-btn b {
-    font-size: 17px;
-  }
-
-
-  .explore-btn {
-
-    height: 45px;
-
-    padding:
-      0 15px;
-
-    border-radius: 8px;
-
-    font-size: 11.5px;
-  }
-
-
-  /* =====================================
-     PRODUCT
-  ===================================== */
-
-  .hero-product {
-
-    width: 100%;
-
-    /*
-      This is the important part.
-      Image gets its own space inside
-      the first viewport.
-    */
-
-    min-height: 0;
-
-    height: 100%;
-
-    margin: 0;
-
-    display: flex;
-
-    align-items: center;
+  .hero-actions {
 
     justify-content: center;
 
-    align-self: center;
+    gap: 15px;
+
+    margin-top: 18px;
   }
 
 
-  .product-glow {
+  .azza-shop-btn {
 
-    width:
-      min(76vw, 320px);
+    height: 45px;
 
-    aspect-ratio: 1;
+    padding-left: 17px;
+
+    gap: 23px;
   }
 
 
-  .honey-image {
+  .discover-btn {
 
-    width:
-      min(88vw, 365px);
+    font-size: 10px;
+  }
 
-    max-width: 100%;
 
-    max-height:
-      min(45vh, 340px);
+  /* ==============================================
+     FEATURES
+  ============================================== */
+
+  .hero-mini-features {
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 24px;
+  }
+
+
+  .hero-mini-features > div {
+
+    padding-right: 15px;
+  }
+
+
+  .hero-mini-features strong {
+
+    font-size: 8px;
+  }
+
+
+  .hero-mini-features span {
+
+    font-size: 7px;
+  }
+
+
+  /* ==============================================
+     RIGHT SIDE
+  ============================================== */
+
+  .hero-right {
+
+    position: absolute;
+
+    right: 14px;
+
+    bottom: 75px;
 
     height: auto;
 
-    object-fit: contain;
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
   }
 
 
-  .nuts-slide .honey-image {
-
-    width:
-      min(86vw, 350px);
-
-    max-height:
-      min(43vh, 325px);
-  }
-
-
-  /* =====================================
-     FEATURES
-     
-     On mobile we hide them from hero
-     because they were pushing image down.
-  ===================================== */
-
-  .hero-features {
+  .vertical-label,
+  .hero-info-card {
 
     display: none;
   }
 
 
-  /* =====================================
-     SLIDER
-  ===================================== */
+  .hero-navigation {
 
-  .slider-controls {
-
-    left: 50%;
-
-    right: auto;
-
-    bottom: 20px;
-
-    transform:
-      translateX(-50%);
-
-    gap: 8px;
-  }
-
-
-  .slider-arrow {
-
-    width: 34px;
-    height: 34px;
-
-    font-size: 13px;
-  }
-
-
-  .slider-dots {
+    flex-direction: row;
 
     gap: 5px;
   }
 
 
-  .slider-dot {
+  .hero-navigation button {
 
-    width: 6px;
-    height: 6px;
+    width: 29px;
+    height: 29px;
+
+    font-size: 10px;
   }
 
 
-  .slider-dot.active {
-    width: 21px;
+  .navigation-progress {
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 4px;
   }
 
 
-  /* =====================================
-     SLIDE NUMBER
-  ===================================== */
+  .navigation-progress span {
 
-  .slide-number {
+    width: 12px;
+    height: 3px;
+  }
 
-    left: 16px;
+
+  .navigation-progress span.active {
+
+    width: 25px;
+    height: 3px;
+  }
+
+
+  /* ==============================================
+     BOTTOM
+  ============================================== */
+
+  .hero-bottom {
+
+    left: 20px;
+
+    bottom: 22px;
+
+    gap: 8px;
+  }
+
+
+  .hero-bottom p {
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .bottom-line {
+
+    width: 25px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .azza-hero {
+
+    min-height: 680px;
+  }
+
+
+  .azza-hero-container {
+
+    min-height: 680px;
+
+    padding-top: 35px;
+  }
+
+
+  .azza-product {
+
+    height: 310px;
+  }
+
+
+  .product-bg-circle {
+
+    width: 250px;
+    height: 250px;
+  }
+
+
+  .product-inner-circle {
+
+    width: 215px;
+    height: 215px;
+  }
+
+
+  .azza-product img {
+
+    max-width: 305px;
+  }
+
+
+  .nuts-product img {
+
+    max-width: 270px;
+  }
+
+
+  .product-badge {
+
+    right: 5%;
 
     bottom: 25px;
 
-    font-size: 8px;
-
-    gap: 6px;
+    transform: scale(0.72);
   }
 
 
-  .slide-number-line {
-    width: 27px;
-  }
-
-
-  /* =====================================
-     SCROLL INDICATOR
-  ===================================== */
-
-  .scroll-indicator {
-    display: none;
-  }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 480px) {
-
-  .hero-container {
+  .azza-hero-content {
 
     padding:
-      23px 13px
-      78px;
+      0
+      18px;
   }
 
 
-  /* TAG */
+  .azza-hero-content h1 {
 
-  .hero-tag {
-
-    padding:
-      6px 12px;
-
-    font-size: 7.5px;
-
-    letter-spacing: 1.4px;
+    font-size: 36px;
   }
 
 
-  /* TITLE */
+  .azza-hero-content p {
 
-  .hero-content h1 {
-
-    margin-top: 15px;
-
-    font-size:
-      clamp(34px, 10vw, 42px);
-
-    letter-spacing:
-      -1.5px;
-  }
-
-
-  /* DESCRIPTION */
-
-  .hero-content > p {
-
-    max-width: 360px;
-
-    margin-top: 12px;
-
-    font-size: 10.5px;
-
-    line-height: 1.5;
-  }
-
-
-  /* BUTTONS */
-
-  .hero-buttons {
-
-    margin-top: 15px;
-  }
-
-
-  .shop-btn {
-
-    width: 155px;
-
-    height: 42px;
-
-    font-size: 10.5px;
-  }
-
-
-  .explore-btn {
-
-    height: 42px;
-
-    padding:
-      0 12px;
-
-    font-size: 10.5px;
-  }
-
-
-  /* PRODUCT */
-
-  .hero-product {
-
-    margin-top: -4px;
-  }
-
-
-  .product-glow {
-
-    width:
-      min(75vw, 285px);
-  }
-
-
-  .honey-image {
-
-    width:
-      min(90vw, 340px);
-
-    max-height:
-      min(43vh, 290px);
-  }
-
-
-  .nuts-slide .honey-image {
-
-    width:
-      min(88vw, 325px);
-
-    max-height:
-      min(41vh, 280px);
-  }
-
-
-  /* SLIDER */
-
-  .slider-controls {
-    bottom: 17px;
-  }
-
-
-  .slider-arrow {
-
-    width: 32px;
-    height: 32px;
-  }
-
-
-  /* NUMBER */
-
-  .slide-number {
-
-    left: 12px;
-
-    bottom: 21px;
-  }
-
-}
-
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 360px) {
-
-  .hero-container {
-
-    padding:
-      20px 10px
-      72px;
-  }
-
-
-  .hero-content h1 {
-
-    font-size: 32px;
-
-    letter-spacing:
-      -1.2px;
-  }
-
-
-  .hero-content > p {
-
-    font-size: 9.5px;
-  }
-
-
-  .hero-buttons {
-
-    margin-top: 13px;
-  }
-
-
-  .shop-btn {
-
-    width: 145px;
-
-    height: 40px;
-  }
-
-
-  .explore-btn {
-
-    height: 40px;
-
-    padding:
-      0 10px;
-  }
-
-
-  .hero-product {
-
-    margin-top: -7px;
-  }
-
-
-  .product-glow {
-
-    width:
-      min(74vw, 260px);
-  }
-
-
-  .honey-image {
-
-    width: 90vw;
-
-    max-height:
-      min(41vh, 255px);
-  }
-
-
-  .nuts-slide .honey-image {
-
-    width: 88vw;
-
-    max-height:
-      min(39vh, 245px);
-  }
-
-
-  .slider-controls {
-
-    bottom: 14px;
-  }
-
-
-  .slider-arrow {
-
-    width: 30px;
-    height: 30px;
+    max-width: 275px;
 
     font-size: 11px;
   }
 
 
-  .slide-number {
+  .hero-actions {
 
-    left: 9px;
-
-    bottom: 18px;
-
-    font-size: 7px;
+    margin-top: 15px;
   }
 
+
+  .hero-mini-features {
+
+    margin-top: 20px;
+
+    gap: 10px;
+  }
+
+
+  .hero-mini-features > div {
+
+    padding-right: 10px;
+  }
+
+
+  .hero-right {
+
+    bottom: 64px;
+  }
 }
 
 
-/* =========================================
-   LANDSCAPE MOBILE
-========================================= */
+/* =========================================================
+   VERY SMALL
+========================================================= */
 
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: 360px) {
 
-  .hero-container {
+  .azza-hero {
 
-    min-height: 100svh;
-
-    height: auto;
-
-    grid-template-columns:
-      1fr 1fr;
-
-    grid-template-rows: 1fr;
-
-    padding:
-      20px 5%
-      55px;
+    min-height: 640px;
   }
 
 
-  .hero-content {
+  .azza-hero-container {
 
-    text-align: left;
+    min-height: 640px;
 
-    align-self: center;
+    padding-top: 30px;
   }
 
 
-  .hero-tag {
-    margin-left: 0;
+  .azza-product {
+
+    height: 285px;
   }
 
 
-  .hero-content h1 {
+  .product-bg-circle {
 
-    font-size: 34px;
+    width: 225px;
+    height: 225px;
   }
 
 
-  .hero-content > p {
+  .product-inner-circle {
 
-    font-size: 10px;
-
-    max-width: 350px;
+    width: 195px;
+    height: 195px;
   }
 
 
-  .hero-buttons {
+  .azza-product img {
 
-    justify-content: flex-start;
+    max-width: 275px;
   }
 
 
-  .hero-product {
+  .nuts-product img {
 
-    height: 100%;
+    max-width: 250px;
   }
 
 
-  .honey-image {
+  .azza-hero-content h1 {
 
-    max-height: 75vh;
+    font-size: 33px;
   }
 
 
-  .nuts-slide .honey-image {
+  .azza-hero-content p {
 
-    max-height: 70vh;
+    margin-top: 10px;
+
+    font-size: 10.5px;
   }
 
 
-  .slider-controls {
+  .hero-mini-features {
 
-    bottom: 12px;
+    display: none;
   }
 
-}
 
+  .hero-bottom {
 
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .hero-content,
-  .hero-product {
-
-    animation: none;
+    bottom: 17px;
   }
 
+
+  .hero-right {
+
+    bottom: 58px;
+  }
 }
