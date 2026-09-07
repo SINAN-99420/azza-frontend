@@ -3,7 +3,6 @@ import "./Hero.css";
 
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-
   const touchStartX = useRef(0);
 
   const slides = [
@@ -19,7 +18,6 @@ function Hero() {
       sideTitle: "Pure Honey",
       sideText: "100% Natural",
     },
-
     {
       number: "02",
       label: "HONEY & NUTS",
@@ -36,27 +34,15 @@ function Hero() {
 
   const slide = slides[activeSlide];
 
-  /* =========================
-     NEXT SLIDE
-  ========================= */
-
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
   };
-
-  /* =========================
-     PREVIOUS SLIDE
-  ========================= */
 
   const prevSlide = () => {
     setActiveSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
-
-  /* =========================
-     AUTO SLIDER
-  ========================= */
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -113,6 +99,56 @@ function Hero() {
 
       <div className="azza-hero-container">
 
+        {/* =========================
+            PRODUCT
+        ========================= */}
+
+        <div
+          className={`azza-product ${
+            activeSlide === 1
+              ? "nuts-product"
+              : ""
+          }`}
+          key={`product-${activeSlide}`}
+        >
+
+          <div className="product-bg-circle"></div>
+
+          <div className="product-inner-circle"></div>
+
+          <div className="product-accent-line"></div>
+
+          <div className="product-shadow"></div>
+
+          <img
+            src={slide.image}
+            alt={
+              activeSlide === 0
+                ? "Azza Pure Honey"
+                : "Azza Honey Mixed Nuts"
+            }
+          />
+
+          {/* PRODUCT BADGE */}
+
+          <div className="product-badge">
+
+            <span className="badge-line"></span>
+
+            <div>
+              <small>
+                {slide.sideTitle}
+              </small>
+
+              <strong>
+                {slide.sideText}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
 
         {/* =========================
             LEFT CONTENT
@@ -125,7 +161,9 @@ function Hero() {
 
           <div className="hero-small-label">
 
-            <span>{slide.number}</span>
+            <span>
+              {slide.number}
+            </span>
 
             <i></i>
 
@@ -137,7 +175,9 @@ function Hero() {
           <h1>
             {slide.title}
             <br />
-            <em>{slide.highlight}</em>
+            <em>
+              {slide.highlight}
+            </em>
           </h1>
 
 
@@ -146,9 +186,7 @@ function Hero() {
           </p>
 
 
-          {/* =========================
-              BUTTONS
-          ========================= */}
+          {/* BUTTONS */}
 
           <div className="hero-actions">
 
@@ -178,9 +216,7 @@ function Hero() {
           </div>
 
 
-          {/* =========================
-              FEATURES
-          ========================= */}
+          {/* FEATURES */}
 
           <div className="hero-mini-features">
 
@@ -228,82 +264,15 @@ function Hero() {
 
 
         {/* =========================
-            PRODUCT
-        ========================= */}
-
-        <div
-          className={`azza-product ${
-            activeSlide === 1
-              ? "nuts-product"
-              : ""
-          }`}
-          key={`product-${activeSlide}`}
-        >
-
-          {/* Main product background */}
-
-          <div className="product-bg-circle"></div>
-
-          <div className="product-inner-circle"></div>
-
-
-          {/* Small decorative line */}
-
-          <div className="product-accent-line"></div>
-
-
-          {/* Product */}
-
-          <img
-            src={slide.image}
-            alt={
-              activeSlide === 0
-                ? "Azza Pure Honey"
-                : "Azza Honey Mixed Nuts"
-            }
-          />
-
-
-          {/* =========================
-              PRODUCT BADGE
-          ========================= */}
-
-          <div className="product-badge">
-
-            <span className="badge-line"></span>
-
-            <div>
-
-              <small>
-                {slide.sideTitle}
-              </small>
-
-              <strong>
-                {slide.sideText}
-              </strong>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* =========================
             RIGHT SIDE
         ========================= */}
 
         <div className="hero-right">
 
-
-          {/* Vertical label */}
-
           <div className="vertical-label">
             NATURAL FOODSTUFF
           </div>
 
-
-          {/* Information */}
 
           <div className="hero-info-card">
 
@@ -320,15 +289,15 @@ function Hero() {
             </div>
 
 
-            <div className="info-mark">
-              
-            </div>
+            <div className="info-mark"></div>
 
 
             <h3>
               Made with
               <br />
-              <em>care.</em>
+              <em>
+                care.
+              </em>
             </h3>
 
 
@@ -344,9 +313,7 @@ function Hero() {
           </div>
 
 
-          {/* =========================
-              NAVIGATION
-          ========================= */}
+          {/* NAVIGATION */}
 
           <div className="hero-navigation">
 
@@ -391,7 +358,7 @@ function Hero() {
 
 
       {/* =========================
-          BOTTOM INFORMATION
+          DESKTOP BOTTOM
       ========================= */}
 
       <div className="hero-bottom">

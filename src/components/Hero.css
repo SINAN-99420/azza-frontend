@@ -1,116 +1,118 @@
-/* =========================================================
+/* =====================================================
    AZZA HERO
-========================================================= */
+===================================================== */
 
 .azza-hero {
   position: relative;
+
   width: 100%;
   min-height: 100vh;
-  min-height: 100svh;
 
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 72% 45%,
-      #edf3e8 0%,
-      #f7f9f5 25%,
-      #ffffff 62%
-    );
+  background: #f7f6f0;
 
-  color: #17201a;
+  color: #173d2c;
 }
 
 
-/* =========================================================
-   BACKGROUND DECORATION
-========================================================= */
+/* =====================================================
+   BACKGROUND CIRCLES
+===================================================== */
 
 .corner-circle {
   position: absolute;
+
   border-radius: 50%;
+
   pointer-events: none;
+
+  z-index: 0;
 }
 
 .corner-top {
   width: 420px;
   height: 420px;
 
-  top: -260px;
+  top: -250px;
   right: -180px;
 
-  background: #edf3e8;
+  background: #edf0df;
 }
 
 .corner-bottom {
   width: 300px;
   height: 300px;
 
-  bottom: -220px;
-  left: -180px;
+  bottom: -210px;
+  left: -170px;
 
-  background: #f0f5ec;
+  background: #eef1df;
 }
 
 .small-bg-circle {
   position: absolute;
 
-  width: 90px;
-  height: 90px;
-
-  right: 27%;
-  bottom: 12%;
+  width: 18px;
+  height: 18px;
 
   border-radius: 50%;
 
-  background: #f4f7f1;
+  right: 14%;
+  top: 24%;
 
-  pointer-events: none;
+  background: #d8b45a;
+
+  opacity: .45;
 }
 
 
-/* =========================================================
+/* =====================================================
    MAIN CONTAINER
-========================================================= */
+===================================================== */
 
 .azza-hero-container {
   position: relative;
-  z-index: 5;
 
-  width: min(1380px, 90%);
+  z-index: 2;
+
+  width: min(1240px, 92%);
 
   min-height: 100vh;
 
-  margin: 0 auto;
+  margin: auto;
 
   display: grid;
 
   grid-template-columns:
-    minmax(330px, 1fr)
-    minmax(430px, 1.1fr)
-    190px;
+    minmax(300px, 1fr)
+    minmax(400px, 1.15fr)
+    170px;
 
   align-items: center;
 
-  column-gap: 35px;
+  gap: 35px;
 }
 
 
-/* =========================================================
-   LEFT CONTENT
-========================================================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .azza-hero-content {
   position: relative;
-  z-index: 10;
 
-  animation: heroContentIn .65s ease both;
+  z-index: 5;
+
+  max-width: 510px;
+
+  animation: heroText .7s ease;
 }
 
-@keyframes heroContentIn {
+@keyframes heroText {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(15px);
   }
 
   to {
@@ -120,83 +122,71 @@
 }
 
 
-/* =========================================================
-   SMALL LABEL
-========================================================= */
+/* LABEL */
 
 .hero-small-label {
   display: flex;
+
   align-items: center;
 
-  gap: 11px;
+  gap: 10px;
 
-  margin-bottom: 24px;
+  margin-bottom: 25px;
 
-  color: #315c40;
+  color: #68766d;
 
   font-size: 11px;
+
   font-weight: 600;
 
   letter-spacing: 2px;
 }
 
 .hero-small-label span {
-  font-size: 12px;
-  color: #718074;
+  color: #b89545;
 }
 
 .hero-small-label i {
-  width: 35px;
+  width: 28px;
   height: 1px;
 
-  display: block;
-
-  background: #b8c8b9;
+  background: #b89545;
 }
 
 
-/* =========================================================
-   TITLE
-========================================================= */
+/* TITLE */
 
 .azza-hero-content h1 {
   margin: 0;
 
-  max-width: 570px;
+  font-family: Georgia, "Times New Roman", serif;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-size: clamp(54px, 5.3vw, 78px);
 
-  font-size: clamp(58px, 5.3vw, 82px);
+  font-weight: 400;
 
   line-height: .94;
 
-  font-weight: 500;
+  letter-spacing: -3px;
 
-  letter-spacing: -4px;
-
-  color: #182019;
+  color: #183d2d;
 }
 
 .azza-hero-content h1 em {
-  color: #285a3b;
+  color: #b08a3e;
 
-  font-style: italic;
+  font-weight: 400;
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+/* DESCRIPTION */
 
-.azza-hero-content > p {
-  max-width: 470px;
+.azza-hero-content p {
+  max-width: 440px;
 
-  margin: 28px 0 0;
+  margin: 27px 0 0;
 
-  color: #667068;
+  color: #667069;
 
   font-size: 15px;
 
@@ -204,15 +194,16 @@
 }
 
 
-/* =========================================================
-   ACTIONS
-========================================================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .hero-actions {
   display: flex;
+
   align-items: center;
 
-  gap: 25px;
+  gap: 22px;
 
   margin-top: 30px;
 }
@@ -221,41 +212,40 @@
 /* SHOP BUTTON */
 
 .azza-shop-btn {
-  height: 54px;
+  height: 52px;
 
-  min-width: 190px;
+  padding: 0 18px 0 22px;
 
-  padding: 0 19px;
+  border: none;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  border-radius: 7px;
 
-  border: 0;
-  border-radius: 9px;
-
-  background: #28583a;
+  background: #173d2c;
 
   color: white;
 
-  font-size: 13px;
-  font-weight: 600;
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
 
   cursor: pointer;
 
-  transition:
-    transform .25s ease,
-    background .25s ease;
+  font-size: 13px;
+
+  transition: .25s ease;
 }
 
 .azza-shop-btn:hover {
-  transform: translateY(-2px);
+  background: #25553f;
 
-  background: #1f4930;
+  transform: translateY(-2px);
 }
 
 .azza-shop-btn b {
   font-size: 19px;
+
   font-weight: 400;
 }
 
@@ -263,28 +253,31 @@
 /* DISCOVER */
 
 .discover-btn {
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
+  height: 52px;
 
   padding: 0;
 
-  border: 0;
+  border: none;
 
   background: transparent;
 
-  color: #28312b;
+  color: #355342;
+
+  cursor: pointer;
 
   font-size: 13px;
 
-  cursor: pointer;
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
 }
 
 .discover-btn span {
   font-size: 17px;
 
-  transition: transform .25s ease;
+  transition: .2s ease;
 }
 
 .discover-btn:hover span {
@@ -292,44 +285,46 @@
 }
 
 
-/* =========================================================
-   MINI FEATURES
-========================================================= */
+/* =====================================================
+   FEATURES
+===================================================== */
 
 .hero-mini-features {
   display: flex;
-  align-items: center;
 
-  gap: 0;
-
-  margin-top: 46px;
+  margin-top: 42px;
 
   padding-top: 20px;
 
-  border-top: 1px solid #e2e8e1;
+  border-top: 1px solid rgba(23, 61, 44, .13);
 
-  max-width: 510px;
+  max-width: 480px;
 }
 
 .mini-feature {
-  min-width: 105px;
+  min-width: 120px;
 
   padding-right: 25px;
+
+  margin-right: 25px;
+
+  border-right: 1px solid rgba(23, 61, 44, .13);
 }
 
-.mini-feature + .mini-feature {
-  padding-left: 25px;
+.mini-feature:last-child {
+  border: none;
 
-  border-left: 1px solid #dfe6df;
+  margin-right: 0;
 }
 
 .mini-feature strong {
   display: block;
 
-  color: #263029;
+  color: #234935;
 
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+
+  letter-spacing: 1px;
 }
 
 .mini-feature span {
@@ -337,85 +332,129 @@
 
   margin-top: 5px;
 
-  color: #7b837d;
+  color: #7a827d;
 
   font-size: 10px;
 }
 
 
-/* =========================================================
-   PRODUCT AREA
-========================================================= */
+/* =====================================================
+   PRODUCT
+===================================================== */
 
 .azza-product {
   position: relative;
 
-  width: 100%;
-  height: 620px;
+  height: 650px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
-  animation: productIn .7s ease both;
+  animation: productIn .8s ease;
 }
 
 @keyframes productIn {
   from {
     opacity: 0;
-    transform: scale(.96);
+
+    transform: scale(.94);
   }
 
   to {
     opacity: 1;
+
     transform: scale(1);
   }
 }
 
 
-/* =========================================================
-   PRODUCT BACKGROUND
-========================================================= */
+/* MAIN CIRCLE */
 
 .product-bg-circle {
   position: absolute;
 
-  width: 540px;
-  height: 540px;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
+  width: 560px;
+  height: 560px;
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      #e8f0e3 0%,
-      #edf4e9 48%,
-      rgba(237,244,233,0) 72%
-    );
+  background: #edf0df;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
 }
-
-
-/* INNER CIRCLE */
 
 .product-inner-circle {
   position: absolute;
 
-  width: 385px;
-  height: 385px;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
 
   border-radius: 50%;
 
-  border: 1px solid rgba(75,105,77,.08);
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(176, 138, 62, .20);
+}
+
+
+/* PRODUCT */
+
+.azza-product img {
+  position: relative;
+
+  z-index: 5;
+
+  width: auto;
+
+  height: 540px;
+
+  max-width: 90%;
+
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 22px 24px rgba(42, 44, 27, .16)
+  );
+}
+
+
+/* NUTS */
+
+.azza-product.nuts-product img {
+  height: 500px;
+}
+
+
+/* SHADOW */
+
+.product-shadow {
+  position: absolute;
+
+  width: 280px;
+  height: 35px;
+
+  bottom: 80px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(37, 42, 28, .16);
+
+  filter: blur(15px);
+
+  z-index: 2;
 }
 
 
@@ -424,187 +463,144 @@
 .product-accent-line {
   position: absolute;
 
-  width: 90px;
+  width: 100px;
   height: 1px;
 
-  left: 7%;
-  bottom: 19%;
+  background: #b89545;
 
-  background: #c7d3c5;
+  right: 8%;
+
+  top: 22%;
 }
 
 
-/* =========================================================
-   PRODUCT IMAGE
-========================================================= */
-
-.azza-product img {
-  position: relative;
-
-  z-index: 5;
-
-  width: 100%;
-
-  max-width: 570px;
-
-  max-height: 590px;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(
-      0 25px 28px rgba(30,50,35,.13)
-    );
-
-  transition: transform .4s ease;
-}
-
-.azza-product:hover img {
-  transform: scale(1.025);
-}
-
-
-/* =========================================================
+/* =====================================================
    PRODUCT BADGE
-========================================================= */
+===================================================== */
 
 .product-badge {
   position: absolute;
 
   z-index: 10;
 
-  right: 1%;
-  top: 18%;
+  right: 0;
 
-  min-width: 155px;
-
-  padding: 13px 15px;
+  bottom: 135px;
 
   display: flex;
+
   align-items: center;
 
-  gap: 11px;
+  gap: 12px;
 
-  border: 1px solid rgba(40,70,45,.08);
+  padding: 12px 15px;
 
-  border-radius: 10px;
+  background: rgba(247, 246, 240, .92);
 
-  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(23, 61, 44, .10);
 
-  box-shadow:
-    0 14px 35px rgba(40,60,40,.09);
-
-  backdrop-filter: blur(8px);
+  border-radius: 7px;
 }
 
 .badge-line {
-  width: 4px;
-  height: 35px;
+  width: 25px;
+  height: 1px;
 
-  border-radius: 10px;
-
-  background: #d5a82a;
+  background: #b89545;
 }
 
 .product-badge small {
   display: block;
 
-  color: #6d766f;
+  color: #68736c;
 
   font-size: 9px;
 
-  text-transform: uppercase;
+  letter-spacing: 1px;
 
-  letter-spacing: .8px;
+  text-transform: uppercase;
 }
 
 .product-badge strong {
   display: block;
 
-  margin-top: 4px;
+  margin-top: 3px;
 
-  color: #253129;
+  color: #234735;
 
   font-size: 11px;
 }
 
 
-/* =========================================================
+/* =====================================================
    RIGHT SIDE
-========================================================= */
+===================================================== */
 
 .hero-right {
-  height: 620px;
+  height: 600px;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
-  gap: 28px;
+  gap: 35px;
 }
 
 
-/* VERTICAL LABEL */
+/* VERTICAL */
 
 .vertical-label {
   writing-mode: vertical-rl;
 
   transform: rotate(180deg);
 
-  color: #8a938c;
+  color: #89918b;
 
-  font-size: 8px;
+  font-size: 9px;
 
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 
-/* =========================================================
-   INFO CARD
-========================================================= */
+/* INFO CARD */
 
 .hero-info-card {
-  width: 155px;
+  width: 135px;
 
-  padding: 17px;
+  padding: 18px;
 
-  border-radius: 15px;
+  border-left: 1px solid rgba(23, 61, 44, .15);
 
-  background: rgba(255,255,255,.84);
+  border-top: 1px solid rgba(23, 61, 44, .10);
 
-  border: 1px solid #edf0ec;
-
-  box-shadow:
-    0 18px 40px rgba(40,60,40,.07);
+  background: rgba(255, 255, 255, .28);
 }
 
 .info-card-top {
   display: flex;
-  align-items: center;
+
   justify-content: space-between;
 
-  margin-bottom: 18px;
-}
+  color: #89918b;
 
-.info-card-top span {
-  color: #7b847c;
+  font-size: 9px;
 
-  font-size: 8px;
-
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
 }
 
 .info-mark {
-  width: 34px;
-  height: 34px;
+  width: 25px;
+  height: 25px;
 
-  margin-bottom: 13px;
+  margin: 35px 0 15px;
 
   border-radius: 50%;
 
-  background: #edf4e9;
+  border: 1px solid #b89545;
 
   position: relative;
 }
@@ -614,164 +610,147 @@
 
   position: absolute;
 
-  width: 8px;
-  height: 12px;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(45deg);
+  width: 7px;
+  height: 11px;
 
   border-radius: 60% 40% 60% 40%;
 
-  background: #4c7957;
+  background: #b89545;
+
+  left: 8px;
+  top: 6px;
 }
 
 .hero-info-card h3 {
   margin: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
+  color: #234735;
 
-  color: #273029;
+  font-family: Georgia, serif;
 
   font-size: 20px;
 
   line-height: 1.05;
 
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-info-card h3 em {
-  color: #376044;
+  color: #b08a3e;
 }
 
 .hero-info-card p {
   margin: 12px 0 0;
 
-  color: #7a827c;
+  color: #7a827d;
 
-  font-size: 10px;
+  font-size: 9px;
 
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .card-line {
   width: 30px;
-  height: 2px;
 
-  margin-top: 17px;
+  height: 1px;
 
-  background: #d6a82c;
+  margin-top: 20px;
+
+  background: #b89545;
 }
 
 
-/* =========================================================
+/* =====================================================
    NAVIGATION
-========================================================= */
+===================================================== */
 
 .hero-navigation {
   display: flex;
+
   align-items: center;
 
-  gap: 13px;
+  gap: 14px;
 }
 
 .hero-navigation button {
   width: 34px;
   height: 34px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #dce4dc;
-
   border-radius: 50%;
 
-  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(23, 61, 44, .18);
 
-  color: #304137;
+  background: transparent;
 
-  font-size: 13px;
+  color: #234735;
 
   cursor: pointer;
 
-  transition: .25s ease;
+  transition: .2s ease;
 }
 
 .hero-navigation button:hover {
-  background: #28583a;
+  background: #173d2c;
+
   color: white;
-  border-color: #28583a;
 }
 
 .navigation-progress {
   display: flex;
 
-  gap: 4px;
+  gap: 5px;
 }
 
 .navigation-progress span {
   width: 18px;
   height: 2px;
 
-  display: block;
-
-  background: #d6ddd6;
-
-  transition: .3s ease;
+  background: #d1d4ca;
 }
 
 .navigation-progress span.active {
-  width: 30px;
-
-  background: #28583a;
+  background: #b89545;
 }
 
 
-/* =========================================================
-   BOTTOM
-========================================================= */
+/* =====================================================
+   DESKTOP BOTTOM
+===================================================== */
 
 .hero-bottom {
   position: absolute;
 
-  z-index: 20;
+  z-index: 5;
 
-  left: 50%;
-  bottom: 24px;
+  left: 4%;
 
-  transform: translateX(-50%);
-
-  width: min(1380px, 90%);
+  bottom: 25px;
 
   display: flex;
+
   align-items: center;
 
-  gap: 18px;
+  gap: 20px;
 }
 
-.hero-bottom > div:not(.bottom-line) {
+.hero-bottom div {
   display: flex;
+
   align-items: center;
 
   gap: 8px;
 }
 
 .hero-bottom span {
-  color: #667169;
+  color: #b89545;
 
-  font-size: 9px;
-
-  letter-spacing: 1px;
+  font-size: 11px;
 }
 
 .hero-bottom p {
   margin: 0;
 
-  color: #8a928c;
+  color: #7e8781;
 
   font-size: 8px;
 
@@ -779,78 +758,37 @@
 }
 
 .bottom-line {
-  width: 45px;
+  width: 70px;
+
   height: 1px;
 
-  background: #d4ddd4;
+  background: rgba(23, 61, 44, .15);
 }
 
 
-/* =========================================================
-   LARGE TABLET
-========================================================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
-@media (max-width: 1150px) {
+@media (max-width: 1050px) {
 
   .azza-hero-container {
     width: 94%;
 
     grid-template-columns:
       minmax(280px, 1fr)
-      minmax(370px, 1fr)
-      130px;
+      minmax(330px, 1fr)
+      100px;
 
-    column-gap: 15px;
+    gap: 10px;
   }
 
   .azza-hero-content h1 {
-    font-size: 62px;
+    font-size: 55px;
   }
 
   .azza-product {
-    height: 550px;
-  }
-
-  .product-bg-circle {
-    width: 460px;
-    height: 460px;
-  }
-
-  .product-inner-circle {
-    width: 330px;
-    height: 330px;
-  }
-
-  .azza-product img {
-    max-width: 500px;
-  }
-
-  .hero-info-card {
-    width: 135px;
-  }
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-  .azza-hero-container {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-right {
-    display: none;
-  }
-
-  .azza-hero-content h1 {
-    font-size: 57px;
-  }
-
-  .azza-product {
-    height: 540px;
+    height: 560px;
   }
 
   .product-bg-circle {
@@ -859,308 +797,261 @@
   }
 
   .product-inner-circle {
-    width: 310px;
-    height: 310px;
+    width: 330px;
+    height: 330px;
   }
 
   .azza-product img {
-    max-width: 460px;
+    height: 430px;
   }
 
-  .hero-bottom {
-    width: 88%;
+  .azza-product.nuts-product img {
+    height: 400px;
+  }
+
+  .hero-info-card {
+    width: 115px;
   }
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
+/* =====================================================
+   MOBILE HERO - BALANCED
+===================================================== */
 
-@media (max-width: 700px) {
-
-  /* -----------------------------------------
-     HERO BASE
-  ----------------------------------------- */
+@media (max-width: 768px) {
 
   .azza-hero {
-    min-height: 100svh;
+    width: 100%;
+    min-height: 100svh !important;
+    height: auto !important;
 
-    height: auto;
+    padding: 0 !important;
+    margin: 0 !important;
 
-    padding: 0 18px;
-
-    background:
-      radial-gradient(
-        circle at 50% 24%,
-        #edf4e9 0%,
-        #f8faf7 30%,
-        #ffffff 62%
-      );
+    overflow: hidden;
   }
-
-
-  /* -----------------------------------------
-     DECORATION
-  ----------------------------------------- */
-
-  .corner-top {
-    width: 240px;
-    height: 240px;
-
-    top: -170px;
-    right: -130px;
-  }
-
-  .corner-bottom {
-    width: 180px;
-    height: 180px;
-
-    bottom: -130px;
-    left: -120px;
-  }
-
-  .small-bg-circle {
-    width: 45px;
-    height: 45px;
-
-    right: 8%;
-    bottom: 32%;
-  }
-
-
-  /* -----------------------------------------
-     MAIN
-  ----------------------------------------- */
 
   .azza-hero-container {
     width: 100%;
+    min-height: calc(100svh - 10px) !important;
+    height: auto !important;
 
-    min-height: 100svh;
+    margin: 0 !important;
+    padding: 12px 18px 20px !important;
 
-    margin: 0;
-
-    display: flex;
-    flex-direction: column;
-
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: center;
 
-    gap: 0;
+    gap: 0 !important;
   }
 
 
-  /* -----------------------------------------
-     PRODUCT FIRST
-  ----------------------------------------- */
+  /* ================================================
+     PRODUCT IMAGE
+  ================================================ */
 
   .azza-product {
     order: 1;
 
     width: 100%;
 
-    height: 42svh;
+    height: 300px !important;
+    min-height: 300px !important;
 
-    min-height: 255px;
-    max-height: 350px;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    flex-shrink: 0;
+    position: relative;
   }
-
 
   .product-bg-circle {
-    width: min(82vw, 310px);
-    height: min(82vw, 310px);
+    width: 245px !important;
+    height: 245px !important;
 
-    top: 50%;
     left: 50%;
+    top: 50%;
 
     transform: translate(-50%, -50%);
   }
-
 
   .product-inner-circle {
-    width: min(62vw, 235px);
-    height: min(62vw, 235px);
+    width: 190px !important;
+    height: 190px !important;
 
-    top: 50%;
     left: 50%;
+    top: 50%;
 
     transform: translate(-50%, -50%);
   }
 
-
-  .product-accent-line {
-    width: 45px;
-
-    left: 8%;
-    bottom: 16%;
-  }
-
-
   .azza-product img {
-    width: 88%;
+    position: relative;
 
-    max-width: 350px;
-    max-height: 100%;
+    width: auto !important;
+    height: 250px !important;
+
+    max-width: 88% !important;
 
     object-fit: contain;
 
-    filter:
-      drop-shadow(
-        0 18px 22px rgba(30,50,35,.13)
-      );
+    z-index: 5;
   }
 
+  .azza-product.nuts-product img {
+    height: 230px !important;
+  }
 
-  /* -----------------------------------------
-     PRODUCT BADGE
-  ----------------------------------------- */
+  .product-shadow {
+    width: 190px;
+    height: 22px;
+
+    bottom: 22px;
+
+    filter: blur(10px);
+  }
+
+  .product-accent-line {
+    display: none !important;
+  }
 
   .product-badge {
-    right: 3%;
-    top: auto;
-    bottom: 7%;
+    right: 3px;
+    bottom: 18px;
 
-    min-width: auto;
-
-    padding: 8px 10px;
-
-    gap: 8px;
-
-    border-radius: 8px;
-  }
-
-  .badge-line {
-    width: 3px;
-    height: 27px;
-  }
-
-  .product-badge small {
-    font-size: 7px;
-  }
-
-  .product-badge strong {
-    font-size: 9px;
-
-    margin-top: 2px;
+    transform: scale(.68);
+    transform-origin: right bottom;
   }
 
 
-  /* -----------------------------------------
-     CONTENT SECOND
-  ----------------------------------------- */
+  /* ================================================
+     TEXT
+  ================================================ */
 
   .azza-hero-content {
     order: 2;
 
-    width: 100%;
+    width: 100% !important;
 
-    padding: 0 2px;
+    height: auto !important;
+    min-height: 0 !important;
 
-    text-align: left;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
   }
 
-
-  /* LABEL */
-
   .hero-small-label {
-    gap: 8px;
+    margin: 0 0 10px !important;
 
-    margin-bottom: 9px;
+    font-size: 9px;
 
-    font-size: 8px;
+    line-height: 1;
 
     letter-spacing: 1.5px;
   }
 
-  .hero-small-label span {
-    font-size: 9px;
-  }
-
   .hero-small-label i {
-    width: 23px;
+    width: 22px;
   }
-
-
-  /* TITLE */
 
   .azza-hero-content h1 {
-    max-width: 330px;
+    margin: 0 !important;
 
-    font-size: clamp(38px, 11vw, 48px);
+    font-size: 40px !important;
 
-    line-height: .94;
+    line-height: .96 !important;
 
-    letter-spacing: -2.3px;
+    letter-spacing: -1.8px;
+  }
+
+  .azza-hero-content p {
+    max-width: 310px;
+
+    margin: 12px auto 0 !important;
+
+    font-size: 11.5px;
+
+    line-height: 1.5;
   }
 
 
-  /* DESCRIPTION */
-
-  .azza-hero-content > p {
-    max-width: 340px;
-
-    margin-top: 10px;
-
-    font-size: 11px;
-
-    line-height: 1.45;
-
-    color: #707871;
-  }
-
-
-  /* -----------------------------------------
+  /* ================================================
      BUTTONS
-  ----------------------------------------- */
+  ================================================ */
 
   .hero-actions {
-    margin-top: 13px;
+    margin: 15px 0 0 !important;
 
-    gap: 16px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
   }
 
-
   .azza-shop-btn {
-    height: 43px;
+    height: 44px;
 
     min-width: 145px;
 
-    padding: 0 14px;
+    padding: 0 15px 0 18px;
 
     border-radius: 8px;
 
-    font-size: 11px;
+    gap: 20px;
+
+    font-size: 10.5px;
   }
 
   .azza-shop-btn b {
     font-size: 16px;
   }
 
-
   .discover-btn {
-    font-size: 10px;
+    height: 44px;
+
+    padding: 0 3px;
+
+    font-size: 10.5px;
 
     gap: 6px;
   }
 
-  .discover-btn span {
-    font-size: 14px;
-  }
 
-
-  /* -----------------------------------------
+  /* ================================================
      FEATURES
-  ----------------------------------------- */
+  ================================================ */
 
   .hero-mini-features {
-    max-width: 100%;
+    width: 100%;
 
-    margin-top: 15px;
+    max-width: 350px;
 
-    padding-top: 11px;
+    margin: 18px 0 0 !important;
+
+    padding: 11px 0 0 !important;
+
+    border-top: 1px solid rgba(23, 61, 44, .11);
+
+    display: flex;
   }
 
   .mini-feature {
@@ -1168,254 +1059,261 @@
 
     min-width: 0;
 
-    padding-right: 10px;
+    padding: 0 8px;
+
+    margin: 0;
+
+    border-right: 1px solid rgba(23, 61, 44, .10);
+
+    text-align: center;
   }
 
-  .mini-feature + .mini-feature {
-    padding-left: 10px;
+  .mini-feature:last-child {
+    border-right: none;
   }
 
   .mini-feature strong {
-    font-size: 10px;
+    display: block;
+
+    font-size: 9.5px;
+
+    letter-spacing: .7px;
   }
 
   .mini-feature span {
-    margin-top: 2px;
+    display: block;
 
-    font-size: 7px;
+    margin-top: 3px;
+
+    font-size: 7.5px;
   }
 
 
-  /* -----------------------------------------
-     RIGHT SIDE HIDDEN
-  ----------------------------------------- */
+  /* ================================================
+     NAVIGATION
+  ================================================ */
 
   .hero-right {
-    display: none;
-  }
+    order: 3;
 
+    width: 100%;
 
-  /* -----------------------------------------
-     BOTTOM HIDDEN
-  ----------------------------------------- */
+    height: auto !important;
+    min-height: 0 !important;
 
-  .hero-bottom {
-    display: none;
-  }
-}
+    margin: 13px 0 0 !important;
+    padding: 0 !important;
 
+    display: flex;
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-  .azza-hero {
-    padding: 0 15px;
-  }
-
-
-  .azza-hero-container {
-    min-height: 100svh;
-  }
-
-
-  /* Product */
-
-  .azza-product {
-    height: 39svh;
-
-    min-height: 230px;
-    max-height: 295px;
-  }
-
-  .azza-product img {
-    width: 90%;
-  }
-
-  .product-bg-circle {
-    width: 255px;
-    height: 255px;
-  }
-
-  .product-inner-circle {
-    width: 195px;
-    height: 195px;
-  }
-
-
-  /* Badge */
-
-  .product-badge {
-    bottom: 5%;
-
-    transform: scale(.88);
-
-    transform-origin: right bottom;
-  }
-
-
-  /* Content */
-
-  .hero-small-label {
-    margin-bottom: 7px;
-  }
-
-  .azza-hero-content h1 {
-    font-size: 37px;
-
-    letter-spacing: -1.8px;
-  }
-
-  .azza-hero-content > p {
-    max-width: 310px;
-
-    margin-top: 8px;
-
-    font-size: 10.5px;
-  }
-
-
-  /* Buttons */
-
-  .hero-actions {
-    margin-top: 10px;
-
-    gap: 12px;
-  }
-
-  .azza-shop-btn {
-    height: 40px;
-
-    min-width: 132px;
-
-    font-size: 10px;
-  }
-
-  .discover-btn {
-    font-size: 9px;
-  }
-
-
-  /* Features */
-
-  .hero-mini-features {
-    margin-top: 11px;
-
-    padding-top: 9px;
-  }
-
-  .mini-feature {
-    padding-right: 7px;
-  }
-
-  .mini-feature + .mini-feature {
-    padding-left: 7px;
-  }
-
-  .mini-feature strong {
-    font-size: 9px;
-  }
-
-  .mini-feature span {
-    font-size: 6.5px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .azza-product {
-    height: 36svh;
-
-    min-height: 210px;
-  }
-
-  .product-bg-circle {
-    width: 225px;
-    height: 225px;
-  }
-
-  .product-inner-circle {
-    width: 170px;
-    height: 170px;
-  }
-
-  .azza-hero-content h1 {
-    font-size: 34px;
-  }
-
-  .azza-hero-content > p {
-    font-size: 10px;
-  }
-
-  .hero-actions {
-    margin-top: 8px;
-  }
-
-  .hero-mini-features {
-    margin-top: 9px;
-  }
-}
-
-
-/* =========================================================
-   LANDSCAPE MOBILE
-========================================================= */
-
-@media (max-width: 900px) and (orientation: landscape) {
-
-  .azza-hero {
-    min-height: 100svh;
-  }
-
-  .azza-hero-container {
-    min-height: 100svh;
-
-    display: grid;
-
-    grid-template-columns: 45% 55%;
-
+    justify-content: center;
     align-items: center;
   }
 
-  .azza-product {
-    order: 2;
-
-    height: 100svh;
-
-    max-height: none;
+  .vertical-label,
+  .hero-info-card {
+    display: none !important;
   }
 
-  .azza-hero-content {
-    order: 1;
+  .hero-navigation {
+    position: static !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+  }
+
+  .hero-navigation button {
+    width: 29px;
+    height: 29px;
+
+    font-size: 12px;
+  }
+
+  .navigation-progress {
+    display: flex;
+
+    gap: 5px;
+  }
+
+  .navigation-progress span {
+    width: 18px;
+    height: 2px;
+  }
+
+
+  /* ================================================
+     HIDE DESKTOP BOTTOM
+  ================================================ */
+
+  .hero-bottom {
+    display: none !important;
+  }
+
+
+  /* ================================================
+     BACKGROUND
+  ================================================ */
+
+  .corner-top {
+    width: 260px;
+    height: 260px;
+
+    top: -175px;
+    right: -135px;
+  }
+
+  .corner-bottom {
+    width: 190px;
+    height: 190px;
+
+    bottom: -135px;
+    left: -120px;
+  }
+
+  .small-bg-circle {
+    display: none;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .azza-hero-container {
+    min-height: 100svh !important;
+
+    padding: 8px 15px 15px !important;
+  }
+
+  .azza-product {
+    height: 275px !important;
+    min-height: 275px !important;
+  }
+
+  .product-bg-circle {
+    width: 225px !important;
+    height: 225px !important;
+  }
+
+  .product-inner-circle {
+    width: 175px !important;
+    height: 175px !important;
+  }
+
+  .azza-product img {
+    height: 230px !important;
+  }
+
+  .azza-product.nuts-product img {
+    height: 215px !important;
+  }
+
+  .product-badge {
+    transform: scale(.62);
+    bottom: 14px;
   }
 
   .azza-hero-content h1 {
-    font-size: 42px;
+    font-size: 37px !important;
   }
 
-  .azza-hero-content > p {
-    font-size: 10px;
+  .azza-hero-content p {
+    max-width: 290px;
 
-    margin-top: 10px;
+    margin-top: 10px !important;
+
+    font-size: 11px;
   }
 
   .hero-actions {
-    margin-top: 12px;
+    margin-top: 13px !important;
+
+    gap: 11px;
+  }
+
+  .azza-shop-btn,
+  .discover-btn {
+    height: 42px;
   }
 
   .hero-mini-features {
-    margin-top: 18px;
+    margin-top: 15px !important;
   }
 
-  .hero-right,
-  .hero-bottom {
-    display: none;
+  .hero-right {
+    margin-top: 10px !important;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .azza-hero-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .azza-product {
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+
+  .product-bg-circle {
+    width: 205px !important;
+    height: 205px !important;
+  }
+
+  .product-inner-circle {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .azza-product img {
+    height: 210px !important;
+  }
+
+  .azza-product.nuts-product img {
+    height: 195px !important;
+  }
+
+  .azza-hero-content h1 {
+    font-size: 34px !important;
+  }
+
+  .azza-hero-content p {
+    max-width: 270px;
+
+    font-size: 10px;
+  }
+
+  .hero-actions {
+    margin-top: 11px !important;
+  }
+
+  .azza-shop-btn {
+    min-width: 128px;
+
+    font-size: 9.5px;
+  }
+
+  .discover-btn {
+    font-size: 9.5px;
+  }
+
+  .hero-mini-features {
+    margin-top: 12px !important;
   }
 }
