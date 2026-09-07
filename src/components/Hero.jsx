@@ -19,6 +19,7 @@ function Hero() {
       sideTitle: "Pure Honey",
       sideText: "100% Natural",
     },
+
     {
       number: "02",
       label: "HONEY & NUTS",
@@ -35,15 +36,27 @@ function Hero() {
 
   const slide = slides[activeSlide];
 
+  /* =========================
+     NEXT SLIDE
+  ========================= */
+
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % slides.length);
   };
+
+  /* =========================
+     PREVIOUS SLIDE
+  ========================= */
 
   const prevSlide = () => {
     setActiveSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
+
+  /* =========================
+     AUTO SLIDER
+  ========================= */
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -52,6 +65,10 @@ function Hero() {
 
     return () => clearInterval(timer);
   }, []);
+
+  /* =========================
+     MOBILE SWIPE
+  ========================= */
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -78,45 +95,42 @@ function Hero() {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* ================= TOP BAR ================= */}
 
-      <div className="hero-header">
-        <span>AZZA FOODSTUFF</span>
+      {/* =========================
+          BACKGROUND SHAPES
+      ========================= */}
 
-        <div className="header-center">
-          NATURAL • SIMPLE • GOOD
-        </div>
+      <div className="corner-circle corner-top"></div>
 
-        <span>EST. 2026</span>
-      </div>
+      <div className="corner-circle corner-bottom"></div>
 
-
-      {/* ================= DECORATIVE BACKGROUND ================= */}
-
-      <div className="hero-shape hero-shape-one"></div>
-
-      <div className="hero-shape hero-shape-two"></div>
-
-      <div className="hero-dots-bg"></div>
+      <div className="small-bg-circle"></div>
 
 
-      {/* ================= MAIN ================= */}
+      {/* =========================
+          MAIN CONTAINER
+      ========================= */}
 
       <div className="azza-hero-container">
 
 
-        {/* ================= LEFT CONTENT ================= */}
+        {/* =========================
+            LEFT CONTENT
+        ========================= */}
 
         <div
           className="azza-hero-content"
           key={`content-${activeSlide}`}
         >
+
           <div className="hero-small-label">
+
             <span>{slide.number}</span>
 
             <i></i>
 
             {slide.label}
+
           </div>
 
 
@@ -132,39 +146,80 @@ function Hero() {
           </p>
 
 
+          {/* =========================
+              BUTTONS
+          ========================= */}
+
           <div className="hero-actions">
 
             <button className="azza-shop-btn">
-              <span>{slide.button}</span>
 
-              <b>↗</b>
+              <span>
+                {slide.button}
+              </span>
+
+              <b>
+                →
+              </b>
+
             </button>
 
+
             <button className="discover-btn">
-              Discover more
-              <span>↓</span>
+
+              Explore Products
+
+              <span>
+                →
+              </span>
+
             </button>
 
           </div>
 
 
-          {/* FEATURES */}
+          {/* =========================
+              FEATURES
+          ========================= */}
 
           <div className="hero-mini-features">
 
-            <div>
-              <strong>100%</strong>
-              <span>Natural</span>
+            <div className="mini-feature">
+
+              <strong>
+                100%
+              </strong>
+
+              <span>
+                Natural
+              </span>
+
             </div>
 
-            <div>
-              <strong>PURE</strong>
-              <span>Ingredients</span>
+
+            <div className="mini-feature">
+
+              <strong>
+                PURE
+              </strong>
+
+              <span>
+                Ingredients
+              </span>
+
             </div>
 
-            <div>
-              <strong>FRESH</strong>
-              <span>Every Pack</span>
+
+            <div className="mini-feature">
+
+              <strong>
+                FRESH
+              </strong>
+
+              <span>
+                Every Pack
+              </span>
+
             </div>
 
           </div>
@@ -172,7 +227,9 @@ function Hero() {
         </div>
 
 
-        {/* ================= PRODUCT ================= */}
+        {/* =========================
+            PRODUCT
+        ========================= */}
 
         <div
           className={`azza-product ${
@@ -183,11 +240,19 @@ function Hero() {
           key={`product-${activeSlide}`}
         >
 
+          {/* Main product background */}
+
           <div className="product-bg-circle"></div>
 
           <div className="product-inner-circle"></div>
 
-          <div className="product-shadow"></div>
+
+          {/* Small decorative line */}
+
+          <div className="product-accent-line"></div>
+
+
+          {/* Product */}
 
           <img
             src={slide.image}
@@ -199,16 +264,24 @@ function Hero() {
           />
 
 
-          {/* PRODUCT BADGE */}
+          {/* =========================
+              PRODUCT BADGE
+          ========================= */}
 
           <div className="product-badge">
 
-            <span>✦</span>
+            <span className="badge-line"></span>
 
             <div>
-              <small>{slide.sideTitle}</small>
 
-              <strong>{slide.sideText}</strong>
+              <small>
+                {slide.sideTitle}
+              </small>
+
+              <strong>
+                {slide.sideText}
+              </strong>
+
             </div>
 
           </div>
@@ -216,32 +289,39 @@ function Hero() {
         </div>
 
 
-        {/* ================= RIGHT SIDE ================= */}
+        {/* =========================
+            RIGHT SIDE
+        ========================= */}
 
         <div className="hero-right">
 
-          {/* vertical text */}
+
+          {/* Vertical label */}
 
           <div className="vertical-label">
-            GOODNESS FROM NATURE
+            NATURAL FOODSTUFF
           </div>
 
 
-          {/* info card */}
+          {/* Information */}
 
           <div className="hero-info-card">
 
             <div className="info-card-top">
 
-              <span>AZZA</span>
+              <span>
+                AZZA
+              </span>
 
-              <span>0{activeSlide + 1}</span>
+              <span>
+                0{activeSlide + 1}
+              </span>
 
             </div>
 
 
-            <div className="info-icon">
-              ✦
+            <div className="info-mark">
+              
             </div>
 
 
@@ -253,9 +333,9 @@ function Hero() {
 
 
             <p>
-              Quality products,
-              naturally selected
-              for you.
+              Simple products,
+              <br />
+              naturally selected.
             </p>
 
 
@@ -264,7 +344,9 @@ function Hero() {
           </div>
 
 
-          {/* NAVIGATION */}
+          {/* =========================
+              NAVIGATION
+          ========================= */}
 
           <div className="hero-navigation">
 
@@ -275,25 +357,24 @@ function Hero() {
               ←
             </button>
 
+
             <div className="navigation-progress">
 
-              <span
-                className={
-                  activeSlide === 0
-                    ? "active"
-                    : ""
-                }
-              ></span>
+              {slides.map((_, index) => (
 
-              <span
-                className={
-                  activeSlide === 1
-                    ? "active"
-                    : ""
-                }
-              ></span>
+                <span
+                  key={index}
+                  className={
+                    activeSlide === index
+                      ? "active"
+                      : ""
+                  }
+                ></span>
+
+              ))}
 
             </div>
+
 
             <button
               onClick={nextSlide}
@@ -309,20 +390,38 @@ function Hero() {
       </div>
 
 
-      {/* ================= BOTTOM ================= */}
+      {/* =========================
+          BOTTOM INFORMATION
+      ========================= */}
 
       <div className="hero-bottom">
 
         <div>
-          <span>01</span>
-          <p>FROM NATURE</p>
+
+          <span>
+            01
+          </span>
+
+          <p>
+            FROM NATURE
+          </p>
+
         </div>
+
 
         <div className="bottom-line"></div>
 
+
         <div>
-          <span>02</span>
-          <p>TO YOUR HOME</p>
+
+          <span>
+            02
+          </span>
+
+          <p>
+            TO YOUR HOME
+          </p>
+
         </div>
 
       </div>
